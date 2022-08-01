@@ -1,3 +1,5 @@
+@import 'bootstrap/scss/bootstrap';
+
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +21,7 @@
   --light-gray: #dfdfdf;
   --gray-2: #f4f4f4;
   --gray-4: #ababab;
+  --gray-5: #4d4d4d;
 
   //PokeTypes Colors:
   --green-grass: #9bcc50;

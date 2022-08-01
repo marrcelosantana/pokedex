@@ -1,0 +1,45 @@
+.container {
+  width: 19rem;
+  height: 22.125rem;
+  background-color: var(--gray-2);
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 2%;
+  cursor: pointer;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  .icons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .typeIcons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--gray-5);
+
+    .pokeName {
+      font-weight: bold;
+    }
+  }
+}

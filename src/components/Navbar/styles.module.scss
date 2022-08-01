@@ -8,4 +8,8 @@
   color: var(--gray-4);
   padding: 0 0 0.2% 0;
   border-bottom: 1px solid var(--gray-4);
+
+  a:hover {
+    color: black;
+  }
 }

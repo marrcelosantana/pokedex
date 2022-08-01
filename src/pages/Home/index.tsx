@@ -6,6 +6,7 @@ import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
 
 import styles from './styles.module.scss';
+import { PokeCard } from '../../components/PokeCard';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
@@ -26,7 +27,6 @@ export function Home() {
             src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
             alt="Gengar"
           />
-
           <span>Pokédex</span>
         </div>
         <div className={styles.searchContainer}>
@@ -55,6 +55,15 @@ export function Home() {
             <option value="">De A - Z</option>
             <option value="">De Z - A</option>
           </select>
+        </div>
+        <div className={styles.pokeListContainer}>
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
         </div>
       </div>
     </div>
