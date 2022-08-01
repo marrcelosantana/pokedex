@@ -12,8 +12,7 @@
   color: var(--text);
   transition: filter 0.2s;
 
-  &:hover,
-  &:focus {
+  &:hover {
     filter: brightness(0.9);
   }
 
