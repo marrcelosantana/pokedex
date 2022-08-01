@@ -1,0 +1,23 @@
+.button {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  background-color: var(--background);
+  color: var(--blue-surf);
+  transition: background-color 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: var(--blue-surf);
+    color: var(--background);
+  }
+
+  &:disabled {
+    background-color: var(--text-body);
+    color: var(--background);
+  }
+}
