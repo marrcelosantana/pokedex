@@ -7,7 +7,7 @@
   padding: 0 2%;
   background-color: var(--blue-water);
   color: white;
-  margin-top: 2%;
+  margin-top: 2.5%;
   border-radius: 15px;
   background: rgb(77, 169, 244);
   background: linear-gradient(
@@ -35,8 +35,13 @@
     }
   }
 
-  img {
+  .pikachuImg {
     width: 13.875rem;
     height: 14.75rem;
+  }
+
+  .arcanineImg {
+    width: 19.313rem;
+    height: 16.25rem;
   }
 }

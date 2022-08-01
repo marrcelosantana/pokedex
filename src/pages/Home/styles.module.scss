@@ -4,7 +4,7 @@
   background-color: var(--background);
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   header {
     display: flex;
     align-items: center;
@@ -63,5 +63,30 @@
     align-items: center;
     justify-content: center;
     padding: 0 10%;
+
+    .buttonsContainer {
+      width: 100%;
+      margin-top: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+
+      select {
+        width: 13.438rem;
+        height: 2.688rem;
+        padding: 0 0.5%;
+        gap: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        background-color: var(--background);
+        color: var(--text);
+        transition: filter 0.2s;
+        border: 1px solid var(--gray-4);
+        outline: 0;
+        cursor: pointer;
+      }
+    }
   }
 }

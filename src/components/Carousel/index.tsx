@@ -1,7 +1,12 @@
 import styles from './styles.module.scss';
 import pikachuImg from '../../assets/pikachu.png';
+import arcanineImg from '../../assets/arcanine.png';
 
-export function Carrousel() {
+export interface CarouselPrpos {
+  tradeImg: boolean;
+}
+
+export function Carousel({ tradeImg }: CarouselPrpos) {
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -11,7 +16,11 @@ export function Carrousel() {
           <br /> na ordem que você preferir.
         </span>
       </div>
-      <img src={pikachuImg} alt="pikachu" />
+      {tradeImg ? (
+        <img src={arcanineImg} alt="arcanine" className={styles.arcanineImg} />
+      ) : (
+        <img src={pikachuImg} alt="pikachu" className={styles.pikachuImg} />
+      )}
     </div>
   );
 }
