@@ -11,6 +11,7 @@
   background-color: var(--gray-2);
   color: var(--text);
   transition: filter 0.2s;
+  outline: 0;
 
   &:hover {
     filter: brightness(0.9);

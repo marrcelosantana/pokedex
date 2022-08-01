@@ -8,14 +8,14 @@ import { Button } from '../../components/Button';
 import styles from './styles.module.scss';
 
 export function Home() {
-  const [tradeImg, setTradeImg] = useState(false);
+  const [showPikachu, setShowPikachu] = useState(true);
 
   function trade(): void {
-    if (tradeImg === false) {
-      setTradeImg(true);
+    if (showPikachu === false) {
+      setShowPikachu(true);
     }
-    if (tradeImg === true) {
-      setTradeImg(false);
+    if (showPikachu === true) {
+      setShowPikachu(false);
     }
   }
   return (
@@ -40,7 +40,7 @@ export function Home() {
       </header>
       <Navbar />
       <div className={styles.content}>
-        <Carousel tradeImg={tradeImg} />
+        <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>
           <Button onClick={trade}>
             <span>Me surpreenda</span>
