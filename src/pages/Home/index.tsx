@@ -1,4 +1,5 @@
 import { FiSearch } from 'react-icons/fi';
+import { Carrousel } from '../../components/Carrousel';
 import { Navbar } from '../../components/Navbar';
 
 import styles from './styles.module.scss';
@@ -24,6 +25,9 @@ export function Home() {
         <span> </span>
       </header>
       <Navbar />
+      <div className={styles.content}>
+        <Carrousel />
+      </div>
     </div>
   );
 }

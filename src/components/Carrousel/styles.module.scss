@@ -1,0 +1,42 @@
+.container {
+  width: 83.75rem;
+  height: 13.063rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 2%;
+  background-color: var(--blue-water);
+  color: white;
+  margin-top: 2%;
+  border-radius: 15px;
+  background: rgb(77, 169, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(77, 169, 244, 1) 0%,
+    rgba(77, 218, 246, 1) 50%,
+    rgba(77, 169, 244, 1) 100%
+  );
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 13.063rem;
+    text-align: center;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    span {
+      font-size: 24px;
+    }
+  }
+
+  img {
+    width: 13.875rem;
+    height: 14.75rem;
+  }
+}

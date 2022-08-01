@@ -1,13 +1,11 @@
 .button {
-  width: 180px;
-  height: 40px;
-  border-radius: 8px;
+  width: 13.438rem;
+  height: 2.688rem;
+  border-radius: 5px;
   border: none;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 21px;
+  font-size: 16px;
   background-color: var(--background);
-  color: var(--blue-surf);
+  color: var(--text);
   transition: background-color 0.2s;
 
   &:hover,
@@ -17,7 +15,7 @@
   }
 
   &:disabled {
-    background-color: var(--text-body);
+    background-color: var(--gray-4);
     color: var(--background);
   }
 }
