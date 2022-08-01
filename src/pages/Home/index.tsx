@@ -8,9 +8,9 @@ import { Button } from '../../components/Button';
 import styles from './styles.module.scss';
 
 export function Home() {
-  const [showPikachu, setShowPikachu] = useState(true);
+  const [showPikachu, setShowPikachu] = useState<boolean>(true);
 
-  function trade(): void {
+  function tradeImg(): void {
     if (showPikachu === false) {
       setShowPikachu(true);
     }
@@ -42,7 +42,7 @@ export function Home() {
       <div className={styles.content}>
         <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>
-          <Button onClick={trade}>
+          <Button onClick={() => tradeImg()}>
             <span>Me surpreenda</span>
             <AiOutlineStar size={20} />
           </Button>

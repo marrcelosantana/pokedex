@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   header {
     display: flex;
     align-items: center;
@@ -59,11 +60,11 @@
   }
 
   .content {
+    width: 83.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 10%;
 
     .buttonsContainer {
       width: 100%;
