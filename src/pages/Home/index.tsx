@@ -23,9 +23,10 @@ export function Home() {
       <header>
         <div className={styles.title}>
           <img
-            src="https://img.pokemondb.net/sprites/ruby-sapphire/normal/raichu.png"
-            alt="Raichu"
+            src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
+            alt="Gengar"
           />
+
           <span>Pokédex</span>
         </div>
         <div className={styles.searchContainer}>
