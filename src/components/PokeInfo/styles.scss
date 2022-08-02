@@ -1,0 +1,161 @@
+.react-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content {
+  width: 100%;
+  max-width: 28.938rem;
+  height: 52.75rem;
+  background-color: #fff;
+  position: relative;
+  border-radius: 0.25rem;
+  outline: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    header {
+      width: 100%;
+      height: 8.063rem;
+      background: var(--gray-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1% 2%;
+
+      border-radius: 0.25rem 0.25rem 15px 15px;
+
+      button,
+      .pokeSprite {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        outline: 0;
+      }
+
+      button {
+        background-color: var(--background);
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        color: var(--gray-5);
+
+        .pokeName {
+          font-size: 36px;
+          font-weight: 700;
+        }
+
+        .pokeNumber {
+          font-size: 20px;
+        }
+      }
+
+      .pokeSprite {
+        background-color: var(--background);
+        img {
+          width: 90%;
+          margin-bottom: 25%;
+          margin-right: 10%;
+        }
+      }
+    }
+
+    .pokeContainer {
+      width: 100%;
+      height: 29.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('../../assets/fire-background.png');
+      padding: 2rem 0 0 0;
+
+      img {
+        position: absolute;
+      }
+    }
+
+    .pokeInfo {
+      width: 100%;
+      height: 21.625rem;
+      background-color: var(--background);
+      margin-top: -23.5%;
+      border-radius: 15px 15px 0 0;
+      font-size: 16px;
+
+      .navbar {
+        margin-top: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px solid var(--gray-4);
+        color: var(--gray-5);
+      }
+
+      .about {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3% 4%;
+        color: var(--gray-5);
+      }
+
+      .moreDetails {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3% 4%;
+
+        .leftDetails,
+        .rightDetails {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .weight,
+        .height,
+        .category,
+        .habilities {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+      }
+
+      .detailTitle {
+        font-size: 20px;
+        color: var(--gray-4);
+      }
+
+      .detailData {
+        font-size: 16px;
+        color: var(--gray-5);
+      }
+    }
+  }
+}

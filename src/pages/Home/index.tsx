@@ -8,12 +8,22 @@ import { PokeCard } from '../../components/PokeCard';
 import { api } from '../../service/api';
 
 import styles from './styles.module.scss';
+import { PokeInfo } from '../../components/PokeInfo';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
+  const [isOpenModal, setOpenModal] = useState(false);
+
+  function handleOpenModal(): void {
+    setOpenModal(true);
+  }
+
+  function handleCloseModal() {
+    setOpenModal(false);
+  }
 
   useEffect(() => {
     api
@@ -31,7 +41,7 @@ export function Home() {
   }
 
   function loadMorePokemons() {
-    setPokemonPerPage(pokemonPerPage + 4);
+    setPokemonPerPage(pokemonPerPage + 8);
   }
 
   return (
@@ -73,7 +83,9 @@ export function Home() {
         </div>
         <div className={styles.pokeListContainer}>
           {pokemons.map((pokemon) => (
-            <PokeCard key={pokemon.name} pokemon={pokemon} />
+            <span onClick={() => handleOpenModal()}>
+              <PokeCard key={pokemon.name} pokemon={pokemon} />
+            </span>
           ))}
         </div>
         <div className={styles.loadContainer}>
@@ -83,6 +95,7 @@ export function Home() {
           </Button>
         </div>
       </div>
+      <PokeInfo isOpenModal={isOpenModal} closeModal={handleCloseModal} />
     </div>
   );
 }
