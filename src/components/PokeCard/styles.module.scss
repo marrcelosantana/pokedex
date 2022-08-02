@@ -26,6 +26,11 @@
       display: flex;
       align-items: center;
       gap: 5px;
+
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
     }
 
     .pokeSprite {

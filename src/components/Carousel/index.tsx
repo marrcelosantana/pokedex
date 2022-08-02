@@ -12,7 +12,7 @@ export function Carousel({ showPikachu }: CarouselProps) {
       <div className={styles.info}>
         <h2>Sua pokédex oficial!</h2>
         <span>
-          Aqui você pode encontrar todosos pokemons
+          Aqui você pode encontrar todos os pokemons
           <br /> na ordem que você preferir.
         </span>
       </div>

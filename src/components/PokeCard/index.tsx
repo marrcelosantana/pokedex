@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { PokeCardProps } from '../../models/PokeCardProps';
-import venomIcon from '../../assets/Plant.svg';
-import plantIcon from '../../assets/Venom.svg';
 import { Sprite } from '../../models/Sprites';
+import { PokeType } from '../../models/PokeTypes';
+import { getIconType } from '../../utils/utils';
 
 import styles from './styles.module.scss';
-import { PokeType } from '../../models/PokeTypes';
 
 export function PokeCard({ pokemon }: PokeCardProps) {
   const [pokemonId, setPokemonId] = useState('');
@@ -26,28 +25,31 @@ export function PokeCard({ pokemon }: PokeCardProps) {
       <div className={styles.icons}>
         <div className={styles.typeIcons}>
           <img
-            src={plantIcon}
+            src={getIconType(pokemonTypes[0]?.type.name)}
             alt="type 1"
-            title={pokemonTypes[0]?.type.name}
+            title={pokemonTypes[0]?.type.name.toUpperCase()}
           />
           {pokemonTypes.length === 2 && (
             <img
-              src={venomIcon}
+              src={getIconType(pokemonTypes[1]?.type.name)}
               alt="type 2"
-              title={pokemonTypes[1]?.type.name}
+              title={pokemonTypes[1]?.type.name.toUpperCase()}
             />
           )}
         </div>
         <div className={styles.pokeSprite}>
           <img
             src={pokemonSprite?.other.home.front_shiny}
-            alt="mini sprite"
-            title="Versão shiny"
+            alt="mini shiny sprite"
+            title="Versão Shiny"
           />
         </div>
       </div>
       <div className={styles.imageContainer}>
-        <img src={pokemonSprite?.other.home.front_default} alt={pokemon.name} />
+        <img
+          src={pokemonSprite?.other.dream_world.front_default}
+          alt={pokemon.name}
+        />
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemon.name}</span>

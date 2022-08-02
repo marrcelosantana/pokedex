@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [pokemonPerPage] = useState(12);
+  const [pokemonPerPage] = useState(150);
   const [currentPage] = useState(0);
 
   useEffect(() => {
