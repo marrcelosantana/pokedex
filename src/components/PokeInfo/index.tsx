@@ -19,7 +19,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
     >
       <div className="content">
         <header>
-          <button type="button">
+          <button type="button" onClick={() => closeModal()}>
             <AiOutlineLeft size={20} />
           </button>
           <div className="title">

@@ -5,10 +5,10 @@ import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
+import { PokeInfo } from '../../components/PokeInfo';
 import { api } from '../../service/api';
 
 import styles from './styles.module.scss';
-import { PokeInfo } from '../../components/PokeInfo';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
