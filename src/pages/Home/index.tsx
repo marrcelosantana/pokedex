@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
+import { PokeCard } from '../../components/PokeCard';
+import { api } from '../../service/api';
 
 import styles from './styles.module.scss';
-import { PokeCard } from '../../components/PokeCard';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
+  const [pokemons, setPokemons] = useState<any[]>([]);
+  const [pokemonPerPage] = useState(10);
+  const [currentPage] = useState(0);
+
+  useEffect(() => {
+    api
+      .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
+      .then((response) => setPokemons(response.data.results));
+    console.log(pokemons);
+  }, [currentPage, pokemonPerPage]);
 
   function tradeImg(): void {
     if (showPikachu === false) {
@@ -57,13 +68,9 @@ export function Home() {
           </select>
         </div>
         <div className={styles.pokeListContainer}>
-          <PokeCard />
-          <PokeCard />
-          <PokeCard />
-          <PokeCard />
-          <PokeCard />
-          <PokeCard />
-          <PokeCard />
+          {pokemons.map((pokemon) => (
+            <PokeCard key={pokemon.name} pokemon={pokemon} />
+          ))}
         </div>
       </div>
     </div>
