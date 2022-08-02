@@ -12,14 +12,13 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [pokemonPerPage] = useState(10);
+  const [pokemonPerPage] = useState(50);
   const [currentPage] = useState(0);
 
   useEffect(() => {
     api
       .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
       .then((response) => setPokemons(response.data.results));
-    console.log(pokemons);
   }, [currentPage, pokemonPerPage]);
 
   function tradeImg(): void {

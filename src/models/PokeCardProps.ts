@@ -1,7 +1,6 @@
-export interface PokeCardProps {
+export type PokeCardProps = {
   pokemon: {
-    id: string;
     name: string;
     url: string;
   };
-}
+};

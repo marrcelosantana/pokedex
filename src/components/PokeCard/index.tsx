@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
-import pokeIcon from '../../assets/Icon.svg';
 import { api } from '../../service/api';
 import { PokeCardProps } from '../../models/PokeCardProps';
 import venomIcon from '../../assets/Plant.svg';
 import plantIcon from '../../assets/Venom.svg';
-import bulbaImg from '../../assets/bulba.png';
+import { Sprite } from '../../models/Sprites';
 
 import styles from './styles.module.scss';
 
 export function PokeCard({ pokemon }: PokeCardProps) {
   const [pokemonId, setPokemonId] = useState('');
+  const [pokemonTypes, setPokemonTypes] = useState<any[]>([]);
+  const [pokemonSprite, setPokemonSprite] = useState<Sprite>();
+
   useEffect(() => {
     api.get(pokemon.url).then((response) => {
       setPokemonId(response.data.id);
-      // setPokemonTypes(response.data.types);
+      setPokemonTypes(response.data.types);
+      setPokemonSprite(response.data.sprites);
     });
   }, [pokemon.url, pokemonId]);
 
@@ -21,13 +24,19 @@ export function PokeCard({ pokemon }: PokeCardProps) {
     <div className={styles.container}>
       <div className={styles.icons}>
         <div className={styles.typeIcons}>
-          <img src={plantIcon} alt="" />
-          <img src={venomIcon} alt="" />
+          <img src={plantIcon} alt="type 1" />
+          <img src={venomIcon} alt="type 2" />
         </div>
-        <img src={pokeIcon} alt="" />
+        <div className={styles.pokeSprite}>
+          <img
+            src={pokemonSprite?.other.home.front_shiny}
+            alt="mini sprite"
+            title="Versão shiny"
+          />
+        </div>
       </div>
       <div className={styles.imageContainer}>
-        <img src={bulbaImg} alt="" />
+        <img src={pokemonSprite?.other.home.front_default} alt={pokemon.name} />
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemon.name}</span>
