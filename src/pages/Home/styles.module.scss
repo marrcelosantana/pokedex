@@ -98,5 +98,19 @@
       align-items: center;
       gap: 2rem 5%;
     }
+
+    .loadContainer {
+      margin-top: 2rem;
+      padding-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        background-color: rgb(77, 169, 244);
+        color: white;
+        font-weight: bold;
+      }
+    }
   }
 }

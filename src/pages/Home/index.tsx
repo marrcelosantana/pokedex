@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineStar, AiOutlineReload } from 'react-icons/ai';
 import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [pokemonPerPage] = useState(150);
+  const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
 
   useEffect(() => {
@@ -29,6 +29,11 @@ export function Home() {
       setShowPikachu(false);
     }
   }
+
+  function loadMorePokemons() {
+    setPokemonPerPage(pokemonPerPage + 4);
+  }
+
   return (
     <div className={styles.container}>
       <header>
@@ -70,6 +75,12 @@ export function Home() {
           {pokemons.map((pokemon) => (
             <PokeCard key={pokemon.name} pokemon={pokemon} />
           ))}
+        </div>
+        <div className={styles.loadContainer}>
+          <Button onClick={() => loadMorePokemons()}>
+            <span>Carregar mais...</span>
+            <AiOutlineReload size={24} />
+          </Button>
         </div>
       </div>
     </div>

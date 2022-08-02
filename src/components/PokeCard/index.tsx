@@ -54,7 +54,9 @@ export function PokeCard({ pokemon }: PokeCardProps) {
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemon.name}</span>
         <div className={styles.pokeNumber}>
-          #{Number(pokemonId) < 10 && <span>0</span>}0{pokemonId}
+          #{Number(pokemonId) < 100 && <span>0</span>}
+          {Number(pokemonId) < 10 && <span>0</span>}
+          {pokemonId}
         </div>
       </div>
     </div>
