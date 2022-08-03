@@ -65,6 +65,7 @@
         .pokeName {
           font-size: 36px;
           font-weight: 700;
+          text-transform: capitalize;
         }
 
         .pokeNumber {
@@ -76,8 +77,6 @@
         background-color: var(--background);
         img {
           width: 90%;
-          margin-bottom: 25%;
-          margin-right: 10%;
         }
       }
     }
@@ -93,6 +92,8 @@
 
       img {
         position: absolute;
+        width: 310px;
+        height: 313px;
       }
     }
 
