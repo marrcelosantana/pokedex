@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineStar, AiOutlineReload } from 'react-icons/ai';
 import { Carousel } from '../../components/Carousel';
@@ -6,16 +6,15 @@ import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
 import { PokeInfo } from '../../components/PokeInfo';
-import { api } from '../../service/api';
+import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
-  const [pokemons, setPokemons] = useState<any[]>([]);
-  const [pokemonPerPage, setPokemonPerPage] = useState(8);
-  const [currentPage] = useState(0);
   const [isOpenModal, setOpenModal] = useState(false);
+  const { pokemons, pokemonPerPage, setPokemonPerPage } =
+    useContext(PokeContext);
 
   function handleOpenModal(): void {
     setOpenModal(true);
@@ -24,12 +23,6 @@ export function Home() {
   function handleCloseModal() {
     setOpenModal(false);
   }
-
-  useEffect(() => {
-    api
-      .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
-      .then((response) => setPokemons(response.data.results));
-  }, [currentPage, pokemonPerPage]);
 
   function tradeImg(): void {
     if (showPikachu === false) {
@@ -82,7 +75,7 @@ export function Home() {
           </select>
         </div>
         <div className={styles.pokeListContainer}>
-          {pokemons.map((pokemon) => (
+          {pokemons.map((pokemon: any) => (
             <span onClick={() => handleOpenModal()}>
               <PokeCard key={pokemon.name} pokemon={pokemon} />
             </span>

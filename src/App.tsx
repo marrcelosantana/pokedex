@@ -1,13 +1,13 @@
 import '../styles/global.scss';
-import { PokeContext } from './contexts/pokeContext';
+import { PokeContextProvider } from './contexts/pokeContext';
 import { AppRoutes } from './routes';
 
 function App() {
   return (
     <div className="App">
-      <PokeContext.Provider value={[]}>
+      <PokeContextProvider>
         <AppRoutes />
-      </PokeContext.Provider>
+      </PokeContextProvider>
     </div>
   );
 }
