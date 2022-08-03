@@ -5,11 +5,13 @@ import { api } from '../service/api';
 
 interface PokeContextData {
   pokemons: any[];
+  pokemonSelected: any;
   pokemonPerPage: number;
   pokemonId: string;
   pokemonTypes: PokeType[];
   pokemonSprite: Sprite | undefined;
   setPokemonPerPage(number: number): void;
+  setPokemonSelected(pokemon: any): void;
   setPokemonId(id: any): void;
   setPokemonTypes(types: any): void;
   setPokemonSprite(sprites: any): void;
@@ -28,6 +30,7 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemonId, setPokemonId] = useState('');
   const [pokemonTypes, setPokemonTypes] = useState<PokeType[]>([]);
   const [pokemonSprite, setPokemonSprite] = useState<Sprite>();
+  const [pokemonSelected, setPokemonSelected] = useState<any>();
 
   useEffect(() => {
     api
@@ -47,6 +50,8 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         setPokemonTypes,
         pokemonSprite,
         setPokemonSprite,
+        pokemonSelected,
+        setPokemonSelected,
       }}
     >
       {children}

@@ -18,7 +18,6 @@ export function PokeCard({ pokemon }: PokeCardProps) {
       setPokemonTypes(response.data.types);
       setPokemonSprite(response.data.sprites);
     });
-    console.log(pokemon);
   }, [pokemon.url, pokemonId]);
 
   return (

@@ -1,10 +1,7 @@
 import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import {
-  AiOutlineStar,
-  AiOutlineReload,
-  AiOutlineArrowUp,
-} from 'react-icons/ai';
+import { AiOutlineReload, AiOutlineArrowUp } from 'react-icons/ai';
+import starImg from '../../assets/magic-star.svg';
 import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
@@ -17,11 +14,12 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [isOpenModal, setOpenModal] = useState(false);
-  const { pokemons, pokemonPerPage, setPokemonPerPage } =
+  const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
 
-  function handleOpenModal(): void {
+  function handleOpenModal(pokemon: any): void {
     setOpenModal(true);
+    setPokemonSelected(pokemon);
   }
 
   function handleCloseModal() {
@@ -66,7 +64,7 @@ export function Home() {
         <div className={styles.buttonsContainer}>
           <Button onClick={() => tradeImg()}>
             <span>Me surpreenda</span>
-            <AiOutlineStar size={20} />
+            <img src={starImg} alt="magic star" />
           </Button>
           <select>
             <option value="" disabled selected hidden>
@@ -80,7 +78,7 @@ export function Home() {
         </div>
         <div className={styles.pokeListContainer}>
           {pokemons.map((pokemon: any) => (
-            <span onClick={() => handleOpenModal()}>
+            <span onClick={() => handleOpenModal(pokemon)}>
               <PokeCard key={pokemon.name} pokemon={pokemon} />
             </span>
           ))}

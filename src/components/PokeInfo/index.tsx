@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
 import ninetales from '../../assets/ninetales.png';
+import { PokeContext } from '../../contexts/pokeContext';
 
 import './styles.scss';
 
@@ -10,6 +12,7 @@ interface ModalProps {
 }
 
 export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
+  const { pokemonSelected } = useContext(PokeContext);
   return (
     <Modal
       isOpen={isOpenModal}
@@ -23,7 +26,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
             <AiOutlineLeft size={20} />
           </button>
           <div className="title">
-            <span className="pokeName">Ninetales</span>
+            <span className="pokeName">{pokemonSelected?.name}</span>
             <span className="pokeNumber">#038</span>
           </div>
           <div className="pokeSprite">
