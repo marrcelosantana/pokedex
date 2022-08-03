@@ -18,6 +18,7 @@ export function PokeCard({ pokemon }: PokeCardProps) {
       setPokemonTypes(response.data.types);
       setPokemonSprite(response.data.sprites);
     });
+    console.log(pokemon);
   }, [pokemon.url, pokemonId]);
 
   return (
@@ -41,7 +42,7 @@ export function PokeCard({ pokemon }: PokeCardProps) {
           <img
             src={pokemonSprite?.other.home.front_shiny}
             alt="mini shiny sprite"
-            title="Versão Shiny"
+            title={`SHINY ${pokemon.name.toUpperCase()}`}
           />
         </div>
       </div>

@@ -1,6 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { AiOutlineStar, AiOutlineReload } from 'react-icons/ai';
+import {
+  AiOutlineStar,
+  AiOutlineReload,
+  AiOutlineArrowUp,
+} from 'react-icons/ai';
 import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
@@ -86,6 +90,13 @@ export function Home() {
             <span>Carregar mais...</span>
             <AiOutlineReload size={24} />
           </Button>
+          {pokemonPerPage >= 16 && (
+            <a href="#" className={styles.backToTop}>
+              <Button>
+                <AiOutlineArrowUp size={24} />
+              </Button>
+            </a>
+          )}
         </div>
       </div>
       <PokeInfo isOpenModal={isOpenModal} closeModal={handleCloseModal} />
