@@ -25,6 +25,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
       setSpriteIsShiny(true);
     }
   }
+
   return (
     <Modal
       isOpen={isOpenModal}
@@ -100,7 +101,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
                 <div className="height">
                   <span className="detailTitle">Altura</span>
                   <span className="detailData">
-                    {pokemonDataSelected?.height}m
+                    {pokemonDataSelected?.height}'00
                   </span>
                 </div>
               </div>
