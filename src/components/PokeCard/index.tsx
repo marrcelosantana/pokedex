@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
 import { Pokemon } from '../../models/Pokemon';
 import { PokemonData } from '../../models/PokemonData';
+import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
-import { PokeContext } from '../../contexts/pokeContext';
 
 export interface PokemonCardProps {
   pokemon: Pokemon;
@@ -13,6 +13,7 @@ export interface PokemonCardProps {
 
 export function PokeCard({ pokemon }: PokemonCardProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
+  const { pokemonDataSelected } = useContext(PokeContext);
 
   async function getPokemonData() {
     await api.get(pokemon.url).then((response) => {

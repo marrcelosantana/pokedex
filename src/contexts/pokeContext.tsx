@@ -8,9 +8,11 @@ interface PokeContextData {
   pokemonSelected: Pokemon | undefined;
   pokemonPerPage: number;
   pokemonData: PokemonData | undefined;
+  pokemonDataSelected: PokemonData | undefined;
   setPokemonPerPage(number: number): void;
   setPokemonSelected(pokemon: Pokemon): void;
   setPokemonData(pokemon: PokemonData): void;
+  setPokemonDataSelected(pokemon: PokemonData): void;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -26,11 +28,21 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
 
+  const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+
   useEffect(() => {
     api
       .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
       .then((response) => setPokemons(response.data.results));
   }, [currentPage, pokemonPerPage]);
+
+  useEffect(() => {
+    if (pokemonSelected) {
+      api.get(pokemonSelected.url).then((response) => {
+        setPokemonDataSelected(response.data);
+      });
+    }
+  }, [pokemonSelected]);
 
   return (
     <PokeContext.Provider
@@ -42,6 +54,8 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         setPokemonSelected,
         pokemonData,
         setPokemonData,
+        pokemonDataSelected,
+        setPokemonDataSelected,
       }}
     >
       {children}
