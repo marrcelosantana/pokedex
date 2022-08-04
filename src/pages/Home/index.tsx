@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineReload, AiOutlineArrowUp } from 'react-icons/ai';
 import starImg from '../../assets/magic-star.svg';
+import { Pokemon } from '../../models/Pokemon';
 import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
@@ -10,7 +11,6 @@ import { PokeInfo } from '../../components/PokeInfo';
 import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
-import { Pokemon } from '../../models/Pokemon';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
@@ -90,7 +90,11 @@ export function Home() {
             <AiOutlineReload size={24} />
           </Button>
           {pokemonPerPage >= 16 && (
-            <a href="#" className={styles.backToTop}>
+            <a
+              href="#"
+              className={styles.backToTop}
+              title="Voltar para o topo da página."
+            >
               <Button>
                 <AiOutlineArrowUp size={24} />
               </Button>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
-import { PokemonData } from '../../models/PokemonData';
 import { Pokemon } from '../../models/Pokemon';
+import { PokemonData } from '../../models/PokemonData';
 
 import styles from './styles.module.scss';
 
@@ -13,10 +13,14 @@ export interface PokemonCardProps {
 export function PokeCard({ pokemon }: PokemonCardProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
 
-  useEffect(() => {
-    api.get(pokemon.url).then((response) => {
+  async function getPokemonData() {
+    await api.get(pokemon.url).then((response) => {
       setPokemonData(response.data);
     });
+  }
+
+  useEffect(() => {
+    getPokemonData();
   }, [pokemon.url, pokemonData?.id]);
 
   return (
