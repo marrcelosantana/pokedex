@@ -6,4 +6,6 @@ export type PokemonData = {
   name: string;
   types: PokeType[];
   sprites: Sprites;
+  height: number;
+  weight: number;
 };
