@@ -110,7 +110,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
 
             <div className="rightDetails">
               <div className="category">
-                <span className="detailTitle">Categoria</span>
+                <span className="detailTitle">Espécie</span>
                 <span className="detailData">Raposa</span>
               </div>
               <div className="habilities">
@@ -124,57 +124,6 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
           </div>
         </div>
       </div>
-      {/* 
-        
-        <div className="pokeInfo">
-          <nav className="navbar">
-            <a href="/">Sobre</a>
-            <a href="/">Status</a>
-            <a href="/">Evoluções</a>
-          </nav>
-          <div className="infoDetails">
-            <div className="about">
-              <span>
-                Dizem que tem mais de mil anos de idade.
-              </span>
-            </div>
-            <div className="moreDetails">
-              <div className="leftDetails">
-                <div className="weight">
-                  <span className="detailTitle">Peso</span>
-                  <span className="detailData">
-                    {pokemonDataSelected?.weight} lbs
-                  </span>
-                </div>
-                <div className="height">
-                  <span className="detailTitle">Altura</span>
-                  <span className="detailData">
-                    {pokemonDataSelected?.height}'00
-                  </span>
-                </div>
-              </div>
-
-              <div className="rightDetails">
-                <div className="category">
-                  <span className="detailTitle">Categoria</span>
-                  <span className="detailData">Raposa</span>
-                </div>
-                <div className="habilities">
-                  <span className="detailTitle">Habilidades</span>
-                  <div className="detailData">
-                    <span>
-                      {pokemonDataSelected?.abilities[0].ability.name}
-                    </span>
-                    <span>
-                      {pokemonDataSelected?.abilities[1].ability.name}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      */}
     </Modal>
   );
 }
