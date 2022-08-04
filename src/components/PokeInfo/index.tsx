@@ -12,7 +12,7 @@ interface ModalProps {
 }
 
 export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
-  const { pokemonData } = useContext(PokeContext);
+  const { pokemonSelected } = useContext(PokeContext);
   return (
     <Modal
       isOpen={isOpenModal}
@@ -26,7 +26,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
             <AiOutlineLeft size={20} />
           </button>
           <div className="title">
-            <span className="pokeName">{pokemonData?.name}</span>
+            <span className="pokeName">{pokemonSelected?.name}</span>
             <span className="pokeNumber">#038</span>
           </div>
           <div className="pokeSprite">

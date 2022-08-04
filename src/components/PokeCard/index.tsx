@@ -5,6 +5,7 @@ import { Pokemon } from '../../models/Pokemon';
 import { PokemonData } from '../../models/PokemonData';
 
 import styles from './styles.module.scss';
+import { PokeContext } from '../../contexts/pokeContext';
 
 export interface PokemonCardProps {
   pokemon: Pokemon;
@@ -44,7 +45,7 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
           <img
             src={pokemonData?.sprites?.other.home.front_shiny}
             alt="mini shiny sprite"
-            title={`SHINY ${pokemon.name.toUpperCase()}`}
+            title={`SHINY ${pokemonData?.name.toUpperCase()}`}
           />
         </div>
       </div>
