@@ -1,11 +1,13 @@
-import { Sprites } from './Sprites';
+import { Abilities } from './PokeAbilities';
+import { PokeSprites } from './PokeSprites';
 import { PokeType } from './PokeTypes';
 
 export type PokemonData = {
   id: number;
   name: string;
   types: PokeType[];
-  sprites: Sprites;
+  abilities: Abilities[];
+  sprites: PokeSprites;
   height: number;
   weight: number;
 };

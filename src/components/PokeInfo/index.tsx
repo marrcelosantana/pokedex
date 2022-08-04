@@ -112,7 +112,14 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
                 </div>
                 <div className="habilities">
                   <span className="detailTitle">Habilidades</span>
-                  <span className="detailData">Flash Fire</span>
+                  <div className="detailData">
+                    <span>
+                      {pokemonDataSelected?.abilities[0].ability.name}
+                    </span>
+                    <span>
+                      {pokemonDataSelected?.abilities[1].ability.name}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
