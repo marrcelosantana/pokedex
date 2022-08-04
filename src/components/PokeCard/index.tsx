@@ -13,7 +13,6 @@ export interface PokemonCardProps {
 
 export function PokeCard({ pokemon }: PokemonCardProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
-  const { pokemonDataSelected } = useContext(PokeContext);
 
   async function getPokemonData() {
     await api.get(pokemon.url).then((response) => {

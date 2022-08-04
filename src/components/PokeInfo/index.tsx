@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
-import ninetales from '../../assets/ninetales.png';
 import { PokeContext } from '../../contexts/pokeContext';
 
 import './styles.scss';
@@ -40,7 +39,11 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
           </button>
           <div className="title">
             <span className="pokeName">{pokemonDataSelected?.name}</span>
-            <span className="pokeNumber">#{pokemonDataSelected?.id}</span>
+            <span className="pokeNumber">
+              #{Number(pokemonDataSelected?.id) < 100 && <span>0</span>}
+              {Number(pokemonDataSelected?.id) < 10 && <span>0</span>}
+              {pokemonDataSelected?.id}
+            </span>
           </div>
           <div className="pokeSprite">
             {isShiny === false ? (
@@ -52,7 +55,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
             ) : (
               <img
                 src={pokemonDataSelected?.sprites.other.home.front_default}
-                alt="Shiny"
+                alt="Normal"
                 onClick={() => handleShinyTransform()}
               />
             )}
@@ -97,7 +100,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
                 <div className="height">
                   <span className="detailTitle">Altura</span>
                   <span className="detailData">
-                    {pokemonDataSelected?.height}kg
+                    {pokemonDataSelected?.height}m
                   </span>
                 </div>
               </div>
