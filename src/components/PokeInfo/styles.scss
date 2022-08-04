@@ -22,144 +22,139 @@
   flex-direction: column;
   align-items: center;
 
-  .content {
+  header {
     width: 100%;
+    height: 8.063rem;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 4%;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    background-color: var(--gray-2);
 
-    header {
-      width: 100%;
-      height: 8.063rem;
-      background: var(--gray-2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1% 4%;
-
-      border-radius: 15px;
-
-      button,
-      .pokeSprite {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 0;
-        outline: 0;
-      }
-
-      button {
-        background-color: var(--background);
-      }
-
-      .title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 5px;
-        color: var(--gray-5);
-
-        .pokeName {
-          font-size: 36px;
-          font-weight: 700;
-          text-transform: capitalize;
-        }
-
-        .pokeNumber {
-          font-size: 20px;
-        }
-      }
-
-      .pokeSprite {
-        background-color: var(--background);
-        cursor: pointer;
-        img {
-          width: 90%;
-        }
-      }
-    }
-
-    .pokeContainer {
-      width: 100%;
-      height: 29.875rem;
+    button,
+    .pokeSprite {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url('../../assets/fire-background.png');
-      padding: 2rem 0 0 0;
+      border: 0;
+      outline: 0;
+    }
 
-      img {
-        position: absolute;
-        width: 310px;
-        height: 313px;
+    button {
+      background-color: var(--background);
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      color: var(--gray-5);
+
+      .pokeName {
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      .pokeNumber {
+        font-size: 20px;
       }
     }
 
-    .pokeInfo {
-      width: 100%;
-      height: 21.625rem;
+    .pokeSprite {
       background-color: var(--background);
-      margin-top: -23.5%;
-      border-radius: 15px;
-      font-size: 16px;
-
-      .navbar {
-        margin-top: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        border-bottom: 1px solid var(--gray-4);
-        color: var(--gray-5);
+      cursor: pointer;
+      img {
+        width: 90%;
       }
+    }
+  }
 
-      .about {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3% 4%;
-        color: var(--gray-5);
-      }
+  .pokeContainer {
+    width: 100%;
+    height: 29.875rem;
+    display: flex;
+    justify-content: center;
 
-      .moreDetails {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 4% 8%;
+    .background {
+      width: 100%;
+      height: 28rem;
+      position: relative;
+    }
 
-        .leftDetails,
-        .rightDetails {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          text-align: center;
-        }
+    .pokeAvatar {
+      position: absolute;
+      width: 25rem;
+      height: 25rem;
+      margin-top: 4.8rem;
+    }
+  }
 
-        .weight,
-        .height,
-        .category,
-        .habilities {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
-      }
+  .pokeInfo {
+    width: 100%;
+    background-color: var(--background);
+    border-radius: 15px;
+    font-size: 16px;
 
-      .detailTitle {
-        font-size: 20px;
-        color: var(--gray-4);
-      }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-bottom: 1px solid var(--gray-4);
+      color: var(--gray-5);
+    }
 
-      .detailData {
-        font-size: 16px;
-        color: var(--gray-5);
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3% 4%;
+      color: var(--gray-5);
+    }
+
+    .moreDetails {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4% 8%;
+
+      .leftDetails,
+      .rightDetails {
         display: flex;
         flex-direction: column;
-        gap: 0 5px;
-        text-transform: capitalize;
+        gap: 15px;
+        text-align: center;
       }
+
+      .weight,
+      .height,
+      .category,
+      .habilities {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+
+    .detailTitle {
+      font-size: 20px;
+      color: var(--gray-4);
+    }
+
+    .detailData {
+      font-size: 16px;
+      color: var(--gray-5);
+      display: flex;
+      flex-direction: column;
+      gap: 0 5px;
+      text-transform: capitalize;
     }
   }
 }

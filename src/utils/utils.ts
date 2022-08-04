@@ -123,5 +123,5 @@ export function getBackground(type: string | undefined) {
     default:
       break;
   }
-  return icon ? `../../public/PokeBackgrounds/${icon}-icon.svg` : undefined;
+  return icon ? `../../public/PokeBackgrounds/${icon}-bg.jpg` : undefined;
 }
