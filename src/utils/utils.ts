@@ -1,4 +1,4 @@
-export function getIconType(type: string) {
+export function getIconType(type: string | undefined) {
   let icon;
 
   switch (type) {

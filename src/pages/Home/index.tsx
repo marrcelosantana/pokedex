@@ -10,6 +10,7 @@ import { PokeInfo } from '../../components/PokeInfo';
 import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
+import { Pokemon } from '../../models/Pokemon';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
@@ -17,7 +18,7 @@ export function Home() {
   const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
 
-  function handleOpenModal(pokemon: any): void {
+  function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
     setPokemonSelected(pokemon);
   }
@@ -77,7 +78,7 @@ export function Home() {
           </select>
         </div>
         <div className={styles.pokeListContainer}>
-          {pokemons.map((pokemon: any) => (
+          {pokemons.map((pokemon: Pokemon) => (
             <span onClick={() => handleOpenModal(pokemon)}>
               <PokeCard key={pokemon.name} pokemon={pokemon} />
             </span>

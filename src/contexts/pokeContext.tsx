@@ -1,20 +1,13 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { PokeType } from '../models/PokeTypes';
-import { Sprite } from '../models/Sprites';
+import { Pokemon } from '../models/Pokemon';
 import { api } from '../service/api';
 
 interface PokeContextData {
-  pokemons: any[];
-  pokemonSelected: any;
+  pokemons: Pokemon[];
+  pokemonSelected: Pokemon | undefined;
   pokemonPerPage: number;
-  pokemonId: string;
-  pokemonTypes: PokeType[];
-  pokemonSprite: Sprite | undefined;
   setPokemonPerPage(number: number): void;
-  setPokemonSelected(pokemon: any): void;
-  setPokemonId(id: any): void;
-  setPokemonTypes(types: any): void;
-  setPokemonSprite(sprites: any): void;
+  setPokemonSelected(pokemon: Pokemon): void;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -24,13 +17,11 @@ interface PokeProviderProps {
 }
 
 export function PokeContextProvider({ children }: PokeProviderProps) {
-  const [pokemons, setPokemons] = useState<any[]>([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
-  const [pokemonId, setPokemonId] = useState('');
-  const [pokemonTypes, setPokemonTypes] = useState<PokeType[]>([]);
-  const [pokemonSprite, setPokemonSprite] = useState<Sprite>();
-  const [pokemonSelected, setPokemonSelected] = useState<any>();
+
+  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
 
   useEffect(() => {
     api
@@ -44,12 +35,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         pokemons,
         pokemonPerPage,
         setPokemonPerPage,
-        pokemonId,
-        setPokemonId,
-        pokemonTypes,
-        setPokemonTypes,
-        pokemonSprite,
-        setPokemonSprite,
         pokemonSelected,
         setPokemonSelected,
       }}
