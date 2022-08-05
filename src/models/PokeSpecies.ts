@@ -1,5 +1,4 @@
 export type PokeSpecies = {
-  species: {
-    name: string;
-  };
+  name: string;
+  url: string;
 };

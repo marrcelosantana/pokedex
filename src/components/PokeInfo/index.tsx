@@ -1,10 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
 import { PokeContext } from '../../contexts/pokeContext';
+import { getBackground } from '../../utils/utils';
+import { SpeciesData } from '../../models/SpeciesData';
+import { PokeAbout } from '../PokeAbout';
+import { api } from '../../service/api';
 
 import './styles.scss';
-import { getBackground } from '../../utils/utils';
 
 interface ModalProps {
   isOpenModal: boolean;
@@ -15,6 +18,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
   const { pokemonDataSelected } = useContext(PokeContext);
   const [isShiny, setIsShiny] = useState(false);
   const [spriteIsShiny, setSpriteIsShiny] = useState(true);
+  const [species, setSpecies] = useState<SpeciesData[]>([]);
 
   function handleShinyTransform() {
     if (isShiny === false && spriteIsShiny === true) {
@@ -26,6 +30,19 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
       setSpriteIsShiny(true);
     }
   }
+
+  async function getSpecies() {
+    if (pokemonDataSelected) {
+      await api.get(pokemonDataSelected.species.url).then((response) => {
+        setSpecies(response.data);
+      });
+    }
+  }
+
+  useEffect(() => {
+    getSpecies();
+    console.log(species);
+  }, [pokemonDataSelected?.id]);
 
   return (
     <Modal
@@ -88,41 +105,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
           <a href="/">Status</a>
           <a href="/">Evoluções</a>
         </nav>
-        <div className="infoDetails">
-          <div className="about">
-            <span>Dizem que tem mais de mil anos de idade.</span>
-          </div>
-          <div className="moreDetails">
-            <div className="leftDetails">
-              <div className="weight">
-                <span className="detailTitle">Peso</span>
-                <span className="detailData">
-                  {pokemonDataSelected?.weight} lbs
-                </span>
-              </div>
-              <div className="height">
-                <span className="detailTitle">Altura</span>
-                <span className="detailData">
-                  {pokemonDataSelected?.height}'00
-                </span>
-              </div>
-            </div>
-
-            <div className="rightDetails">
-              <div className="category">
-                <span className="detailTitle">Espécie</span>
-                <span className="detailData">Raposa</span>
-              </div>
-              <div className="habilities">
-                <span className="detailTitle">Habilidades</span>
-                <div className="detailData">
-                  <span>{pokemonDataSelected?.abilities[0]?.ability.name}</span>
-                  <span>{pokemonDataSelected?.abilities[1]?.ability.name}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PokeAbout />
       </div>
     </Modal>
   );

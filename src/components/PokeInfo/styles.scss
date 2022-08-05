@@ -110,51 +110,5 @@
       border-bottom: 1px solid var(--gray-4);
       color: var(--gray-5);
     }
-
-    .about {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3% 4%;
-      color: var(--gray-5);
-    }
-
-    .moreDetails {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.2rem 8%;
-
-      .leftDetails,
-      .rightDetails {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-      }
-
-      .weight,
-      .height,
-      .category,
-      .habilities {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-    }
-
-    .detailTitle {
-      font-size: 20px;
-      color: var(--gray-4);
-    }
-
-    .detailData {
-      font-size: 16px;
-      color: var(--gray-5);
-      display: flex;
-      flex-direction: column;
-      gap: 0 5px;
-      text-transform: capitalize;
-    }
   }
 }
