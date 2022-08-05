@@ -3,11 +3,11 @@ import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
 import { PokeContext } from '../../contexts/pokeContext';
 import { getBackground } from '../../utils/utils';
-import { SpeciesData } from '../../models/SpeciesData';
 import { PokeAbout } from '../PokeAbout';
 import { PokeEvolutions } from '../PokeEvolutions';
 import { PokeStats } from '../PokeStats';
 import { api } from '../../service/api';
+import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 import './styles.scss';
@@ -30,19 +30,19 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
     handleChooseStats,
   } = useContext(PokeModalContext);
 
-  const [species, setSpecies] = useState<SpeciesData[]>([]);
+  const [species, setSpecies] = useState<PokeSpecies>();
 
   async function getSpecies() {
     if (pokemonDataSelected) {
       await api.get(pokemonDataSelected.species.url).then((response) => {
         setSpecies(response.data);
+        console.log(species);
       });
     }
   }
 
   useEffect(() => {
     getSpecies();
-    console.log(species);
   }, [pokemonDataSelected?.id]);
 
   return (
@@ -114,7 +114,7 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         </nav>
         {isAboutOption === true && <PokeAbout />}
         {isStatsOption === true && <PokeStats />}
-        {isEvolutionOption === true && <PokeEvolutions />}
+        {isEvolutionOption === true && <PokeEvolutions species={species} />}
       </div>
     </Modal>
   );
