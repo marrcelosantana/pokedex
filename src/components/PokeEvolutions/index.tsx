@@ -22,6 +22,7 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
               title={species?.evolves_from_species.name}
             />
           </div>
+          <span>{species?.evolves_from_species?.name}</span>
         </div>
       )}
 
@@ -39,6 +40,7 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
             title={pokemonDataSelected?.name}
           />
         </div>
+        <span>{pokemonDataSelected?.name}</span>
       </div>
     </div>
   );
