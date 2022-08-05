@@ -1,13 +1,21 @@
 import { useContext } from 'react';
 import { PokeContext } from '../../contexts/pokeContext';
+import { PokeSpecies } from '../../models/PokeSpecies';
 
 import styles from './styles.module.scss';
 
-export function PokeAbout() {
+interface PokeAboutProps {
+  species: PokeSpecies | undefined;
+}
+
+export function PokeAbout({ species }: PokeAboutProps) {
   const { pokemonDataSelected } = useContext(PokeContext);
 
   return (
     <div className={styles.infoDetails}>
+      <div className={styles.about}>
+        <span>{species?.flavor_text_entries[6].flavor_text}</span>
+      </div>
       <div className={styles.moreDetails}>
         <div className={styles.leftDetails}>
           <div className={styles.wight}>

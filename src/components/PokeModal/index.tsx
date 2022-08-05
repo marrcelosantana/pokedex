@@ -109,10 +109,10 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
             Stats
           </button>
           <button type="button" onClick={handleChooseEvolution}>
-            Evoluções
+            Pré-Evoluções
           </button>
         </nav>
-        {isAboutOption === true && <PokeAbout />}
+        {isAboutOption === true && <PokeAbout species={species} />}
         {isStatsOption === true && <PokeStats />}
         {isEvolutionOption === true && <PokeEvolutions species={species} />}
       </div>
