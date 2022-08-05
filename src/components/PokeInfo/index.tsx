@@ -21,6 +21,10 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
   const [spriteIsShiny, setSpriteIsShiny] = useState(true);
   const [species, setSpecies] = useState<SpeciesData[]>([]);
 
+  const [isAboutOption, setIsAboutOption] = useState(true);
+  const [isStatsOption, setIsStatsOption] = useState(false);
+  const [isEvolutionOption, setIsEvolutionOption] = useState(false);
+
   function handleShinyTransform() {
     if (isShiny === false && spriteIsShiny === true) {
       setIsShiny(true);
@@ -102,11 +106,10 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
       </div>
       <div className="pokeInfo">
         <nav className="navbar">
-          <a href="/">Sobre</a>
-          <a href="/">Status</a>
-          <a href="/">Evoluções</a>
+          <a href="">Sobre</a>
+          <a href="">Stats</a>
+          <a href="">Evoluções</a>
         </nav>
-        {/* <PokeAbout /> */}
         <PokeStats />
       </div>
     </Modal>

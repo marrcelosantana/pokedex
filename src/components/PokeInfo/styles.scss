@@ -109,6 +109,12 @@
       justify-content: space-around;
       border-bottom: 1px solid var(--gray-4);
       color: var(--gray-5);
+
+      button {
+        border: 0;
+        background: none;
+        outline: 0;
+      }
     }
   }
 }
