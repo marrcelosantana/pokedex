@@ -27,7 +27,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [currentPage] = useState(0);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
-
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
 
   useEffect(() => {

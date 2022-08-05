@@ -108,12 +108,16 @@
       align-items: center;
       justify-content: space-around;
       border-bottom: 1px solid var(--gray-4);
-      color: var(--gray-5);
 
       button {
         border: 0;
         background: none;
         outline: 0;
+        color: var(--gray-4);
+
+        &:hover {
+          color: black;
+        }
       }
     }
   }

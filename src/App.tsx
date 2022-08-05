@@ -1,12 +1,16 @@
-import '../styles/global.scss';
 import { PokeContextProvider } from './contexts/pokeContext';
 import { AppRoutes } from './routes';
+
+import '../styles/global.scss';
+import { PokeModalContextProvider } from './contexts/pokeModalContext';
 
 function App() {
   return (
     <div className="App">
       <PokeContextProvider>
-        <AppRoutes />
+        <PokeModalContextProvider>
+          <AppRoutes />
+        </PokeModalContextProvider>
       </PokeContextProvider>
     </div>
   );

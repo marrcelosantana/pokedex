@@ -28,7 +28,9 @@ export function PokeAbout() {
         <div className={styles.rightDetails}>
           <div className={styles.category}>
             <span className={styles.detailTitle}>Espécie</span>
-            <span className={styles.detailData}>Raposa</span>
+            <span className={styles.detailData}>
+              {pokemonDataSelected?.species.name}
+            </span>
           </div>
           <div className={styles.abilities}>
             <span className={styles.detailTitle}>Habilidades</span>

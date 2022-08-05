@@ -5,10 +5,11 @@ import { PokeContext } from '../../contexts/pokeContext';
 import { getBackground } from '../../utils/utils';
 import { SpeciesData } from '../../models/SpeciesData';
 import { PokeAbout } from '../PokeAbout';
+import { PokeStats } from '../PokeStats';
 import { api } from '../../service/api';
 
 import './styles.scss';
-import { PokeStats } from '../PokeStats';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 interface ModalProps {
   isOpenModal: boolean;
@@ -17,24 +18,18 @@ interface ModalProps {
 
 export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
   const { pokemonDataSelected } = useContext(PokeContext);
-  const [isShiny, setIsShiny] = useState(false);
-  const [spriteIsShiny, setSpriteIsShiny] = useState(true);
+  const {
+    isAboutOption,
+    isStatsOption,
+    isEvolutionOption,
+    isShiny,
+    handleShinyTransform,
+    handleChooseAbout,
+    handleChooseEvolution,
+    handleChooseStats,
+  } = useContext(PokeModalContext);
+
   const [species, setSpecies] = useState<SpeciesData[]>([]);
-
-  const [isAboutOption, setIsAboutOption] = useState(true);
-  const [isStatsOption, setIsStatsOption] = useState(false);
-  const [isEvolutionOption, setIsEvolutionOption] = useState(false);
-
-  function handleShinyTransform() {
-    if (isShiny === false && spriteIsShiny === true) {
-      setIsShiny(true);
-      setSpriteIsShiny(false);
-    }
-    if (isShiny === true && spriteIsShiny === false) {
-      setIsShiny(false);
-      setSpriteIsShiny(true);
-    }
-  }
 
   async function getSpecies() {
     if (pokemonDataSelected) {
@@ -106,11 +101,19 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
       </div>
       <div className="pokeInfo">
         <nav className="navbar">
-          <a href="">Sobre</a>
-          <a href="">Stats</a>
-          <a href="">Evoluções</a>
+          <button type="button" onClick={handleChooseAbout}>
+            Sobre
+          </button>
+          <button type="button" onClick={handleChooseStats}>
+            Stats
+          </button>
+          <button type="button" onClick={handleChooseEvolution}>
+            Evoluções
+          </button>
         </nav>
-        <PokeStats />
+        {isAboutOption === true && <PokeAbout />}
+        {isStatsOption === true && <PokeStats />}
+        {isEvolutionOption === true && <div>Hello World</div>}
       </div>
     </Modal>
   );
