@@ -1,16 +1,9 @@
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3% 4%;
-  color: var(--gray-5);
-}
-
 .moreDetails {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.2rem 8%;
+  padding: 0 8%;
+  margin-top: 2rem;
 
   .leftDetails,
   .rightDetails {

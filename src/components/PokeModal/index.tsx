@@ -5,18 +5,19 @@ import { PokeContext } from '../../contexts/pokeContext';
 import { getBackground } from '../../utils/utils';
 import { SpeciesData } from '../../models/SpeciesData';
 import { PokeAbout } from '../PokeAbout';
+import { PokeEvolutions } from '../PokeEvolutions';
 import { PokeStats } from '../PokeStats';
 import { api } from '../../service/api';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 import './styles.scss';
-import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 interface ModalProps {
   isOpenModal: boolean;
   closeModal: () => void;
 }
 
-export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
+export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
   const { pokemonDataSelected } = useContext(PokeContext);
   const {
     isAboutOption,
@@ -41,7 +42,6 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
 
   useEffect(() => {
     getSpecies();
-    console.log(species);
   }, [pokemonDataSelected?.id]);
 
   return (
@@ -113,7 +113,7 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
         </nav>
         {isAboutOption === true && <PokeAbout />}
         {isStatsOption === true && <PokeStats />}
-        {isEvolutionOption === true && <div>Hello World</div>}
+        {isEvolutionOption === true && <PokeEvolutions />}
       </div>
     </Modal>
   );

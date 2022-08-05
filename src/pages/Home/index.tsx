@@ -7,7 +7,7 @@ import { Carousel } from '../../components/Carousel';
 import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
-import { PokeInfo } from '../../components/PokeInfo';
+import { PokeModal } from '../../components/PokeModal';
 import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
@@ -102,7 +102,7 @@ export function Home() {
           )}
         </div>
       </div>
-      <PokeInfo isOpenModal={isOpenModal} closeModal={handleCloseModal} />
+      <PokeModal isOpenModal={isOpenModal} closeModal={handleCloseModal} />
     </div>
   );
 }

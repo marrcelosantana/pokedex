@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { PokeContext } from '../../contexts/pokeContext';
+
 import styles from './styles.module.scss';
 
 export function PokeAbout() {
   const { pokemonDataSelected } = useContext(PokeContext);
+
   return (
     <div className={styles.infoDetails}>
-      <div className={styles.about}>
-        <span>Dizem que tem mais de mil anos de idade.</span>
-      </div>
       <div className={styles.moreDetails}>
         <div className={styles.leftDetails}>
           <div className={styles.wight}>
