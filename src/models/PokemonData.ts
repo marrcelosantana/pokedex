@@ -2,6 +2,7 @@ import { Abilities } from './PokeAbilities';
 import { PokeMoves } from './PokeMoves';
 import { PokeSpecies } from './PokeSpecies';
 import { PokeSprites } from './PokeSprites';
+import { PokeStats } from './PokeStats';
 import { PokeType } from './PokeTypes';
 
 export type PokemonData = {
@@ -14,4 +15,5 @@ export type PokemonData = {
   height: number;
   weight: number;
   species: PokeSpecies;
+  stats: PokeStats[];
 };

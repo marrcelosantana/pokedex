@@ -8,6 +8,7 @@ import { PokeAbout } from '../PokeAbout';
 import { api } from '../../service/api';
 
 import './styles.scss';
+import { PokeStats } from '../PokeStats';
 
 interface ModalProps {
   isOpenModal: boolean;
@@ -105,7 +106,8 @@ export function PokeInfo({ isOpenModal, closeModal }: ModalProps) {
           <a href="/">Status</a>
           <a href="/">Evoluções</a>
         </nav>
-        <PokeAbout />
+        {/* <PokeAbout /> */}
+        <PokeStats />
       </div>
     </Modal>
   );
