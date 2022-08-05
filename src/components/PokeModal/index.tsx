@@ -42,6 +42,7 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
 
   useEffect(() => {
     getSpecies();
+    console.log(species);
   }, [pokemonDataSelected?.id]);
 
   return (

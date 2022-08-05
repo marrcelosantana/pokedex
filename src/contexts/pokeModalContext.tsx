@@ -25,8 +25,8 @@ interface PokeModalProviderProps {
 }
 
 export function PokeModalContextProvider({ children }: PokeModalProviderProps) {
-  const [isAboutOption, setIsAboutOption] = useState(true);
-  const [isStatsOption, setIsStatsOption] = useState(false);
+  const [isAboutOption, setIsAboutOption] = useState(false);
+  const [isStatsOption, setIsStatsOption] = useState(true);
   const [isEvolutionOption, setIsEvolutionOption] = useState(false);
   const [isShiny, setIsShiny] = useState(false);
   const [spriteIsShiny, setSpriteIsShiny] = useState(true);
