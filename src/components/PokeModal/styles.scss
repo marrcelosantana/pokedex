@@ -103,24 +103,10 @@
     border-radius: 15px;
     font-size: 16px;
 
-    .navbar {
+    .tabs {
       display: flex;
-      align-items: center;
-      justify-content: space-around;
-      border-bottom: 1px solid var(--gray-4);
-
-      button {
-        border: 0;
-        background: none;
-        outline: 0;
-        color: var(--gray-4);
-        font-weight: bold;
-
-        &:focus {
-          color: var(--orange-fire);
-          font-weight: bold;
-        }
-      }
+      flex-direction: column;
+      text-align: center;
     }
   }
 }

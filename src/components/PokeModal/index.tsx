@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { PokeContext } from '../../contexts/pokeContext';
 import { getBackground } from '../../utils/utils';
 import { PokeAbout } from '../PokeAbout';
@@ -10,6 +11,7 @@ import { api } from '../../service/api';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import pokeballImg from '../../assets/pokeball.png';
+import 'react-tabs/style/react-tabs.css';
 
 import './styles.scss';
 
@@ -20,16 +22,7 @@ interface ModalProps {
 
 export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
   const { pokemonDataSelected } = useContext(PokeContext);
-  const {
-    isAboutOption,
-    isStatsOption,
-    isEvolutionOption,
-    isShiny,
-    handleShinyTransform,
-    handleChooseAbout,
-    handleChooseEvolution,
-    handleChooseStats,
-  } = useContext(PokeModalContext);
+  const { isShiny, handleShinyTransform } = useContext(PokeModalContext);
 
   const [species, setSpecies] = useState<PokeSpecies>();
   const [evolutionData, setEvolutionData] = useState();
@@ -117,7 +110,24 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         )}
       </div>
       <div className="pokeInfo">
-        <nav className="navbar">
+        <Tabs className="tabs">
+          <TabList>
+            <Tab>Sobre</Tab>
+            <Tab>Stats</Tab>
+            <Tab>Pré-Evoluções</Tab>
+          </TabList>
+
+          <TabPanel>
+            <PokeAbout species={species} />
+          </TabPanel>
+          <TabPanel>
+            <PokeStats />
+          </TabPanel>
+          <TabPanel>
+            <PokeEvolutions species={species} />
+          </TabPanel>
+        </Tabs>
+        {/* <nav className="navbar">
           <button type="button" onClick={handleChooseAbout}>
             Sobre
           </button>
@@ -130,7 +140,7 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         </nav>
         {isAboutOption === true && <PokeAbout species={species} />}
         {isStatsOption === true && <PokeStats />}
-        {isEvolutionOption === true && <PokeEvolutions species={species} />}
+        {isEvolutionOption === true && <PokeEvolutions species={species} />} */}
       </div>
     </Modal>
   );
