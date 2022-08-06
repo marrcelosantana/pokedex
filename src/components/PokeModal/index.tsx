@@ -112,7 +112,7 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
       <div className="pokeInfo">
         <Tabs
           justify
-          defaultActiveKey="Sobre"
+          defaultActiveKey="Stats"
           className="tabs"
           style={{ fontSize: '14px', marginBottom: '1rem' }}
         >

@@ -20,13 +20,13 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
           <div className={styles.spriteContainer}>
             {isShiny === false ? (
               <img
-                src={`https://projectpokemon.org/images/normal-sprite/${species?.evolves_from_species?.name}.gif`}
+                src={`https://img.pokemondb.net/sprites/home/normal/${species?.evolves_from_species?.name}.png`}
                 alt="sprite pre evolution"
                 title={species?.evolves_from_species.name}
               />
             ) : (
               <img
-                src={`https://projectpokemon.org/images/shiny-sprite/${species?.evolves_from_species?.name}.gif`}
+                src={`https://img.pokemondb.net/sprites/home/shiny/${species?.evolves_from_species?.name}.png`}
                 alt="sprite pre evolution"
                 title={species?.evolves_from_species.name}
               />
@@ -46,13 +46,13 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
         <div className={styles.spriteContainer}>
           {isShiny === false ? (
             <img
-              src={`https://projectpokemon.org/images/normal-sprite/${pokemonDataSelected?.name}.gif`}
+              src={`https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`}
               alt="sprite evolution"
               title={pokemonDataSelected?.name}
             />
           ) : (
             <img
-              src={`https://projectpokemon.org/images/shiny-sprite/${pokemonDataSelected?.name}.gif`}
+              src={`https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`}
               alt="sprite evolution"
               title={pokemonDataSelected?.name}
             />
