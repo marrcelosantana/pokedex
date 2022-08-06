@@ -37,7 +37,7 @@ export function Home() {
   }
 
   function loadMorePokemons() {
-    setPokemonPerPage(pokemonPerPage + 24);
+    setPokemonPerPage(pokemonPerPage + 32);
   }
 
   return (

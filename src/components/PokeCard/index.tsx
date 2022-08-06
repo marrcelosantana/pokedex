@@ -3,6 +3,7 @@ import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
 import { Pokemon } from '../../models/Pokemon';
 import { PokemonData } from '../../models/PokemonData';
+import pokeballImg from '../../assets/pokeball.png';
 
 import styles from './styles.module.scss';
 
@@ -41,18 +42,34 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
           )}
         </div>
         <div className={styles.pokeSprite}>
-          <img
-            src={pokemonData?.sprites?.other.home.front_shiny}
-            alt="mini shiny sprite"
-            title={`SHINY ${pokemonData?.name.toUpperCase()}`}
-          />
+          {pokemonData?.sprites?.other.home.front_shiny ? (
+            <img
+              src={pokemonData?.sprites?.other.home.front_shiny}
+              alt="mini shiny sprite"
+              title={`SHINY ${pokemonData?.name.toUpperCase()}`}
+            />
+          ) : (
+            <img
+              src={pokeballImg}
+              alt={pokemonData?.name}
+              title={pokemonData?.name}
+            />
+          )}
         </div>
       </div>
       <div className={styles.imageContainer}>
-        <img
-          src={pokemonData?.sprites?.other.dream_world.front_default}
-          alt={pokemonData?.name}
-        />
+        {pokemonData?.sprites?.other['official-artwork'].front_default ? (
+          <img
+            src={pokemonData.sprites.other['official-artwork'].front_default}
+            alt={pokemonData?.name}
+          />
+        ) : (
+          <img
+            src={pokeballImg}
+            alt={pokemonData?.name}
+            title={pokemonData?.name}
+          />
+        )}
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemonData?.name}</span>

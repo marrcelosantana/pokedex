@@ -9,6 +9,7 @@ import { PokeStats } from '../PokeStats';
 import { api } from '../../service/api';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
+import pokeballImg from '../../assets/pokeball.png';
 
 import './styles.scss';
 
@@ -86,7 +87,7 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
           ) : (
             <img
               src={pokemonDataSelected?.sprites.other.home.front_default}
-              alt="Normal"
+              alt={pokemonDataSelected?.name}
               onClick={() => handleShinyTransform()}
             />
           )}
@@ -101,15 +102,18 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         {isShiny === false ? (
           <img
             src={pokemonDataSelected?.sprites.other.home.front_default}
-            alt="pokemon"
+            alt={pokemonDataSelected?.name}
             className="pokeAvatar"
           />
         ) : (
           <img
             src={pokemonDataSelected?.sprites.other.home.front_shiny}
-            alt="pokemon"
+            alt={pokemonDataSelected?.name}
             className="pokeAvatar"
           />
+        )}
+        {pokemonDataSelected?.sprites.other.home.front_default === null && (
+          <img src={pokeballImg} alt="" className="pokeballImg" />
         )}
       </div>
       <div className="pokeInfo">
