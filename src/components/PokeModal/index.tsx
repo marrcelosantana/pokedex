@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import { PokeContext } from '../../contexts/pokeContext';
 import { getBackground } from '../../utils/utils';
 import { PokeAbout } from '../PokeAbout';
@@ -11,7 +12,6 @@ import { api } from '../../service/api';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import pokeballImg from '../../assets/pokeball.png';
-import 'react-tabs/style/react-tabs.css';
 
 import './styles.scss';
 
@@ -110,37 +110,22 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         )}
       </div>
       <div className="pokeInfo">
-        <Tabs className="tabs">
-          <TabList>
-            <Tab>Sobre</Tab>
-            <Tab>Stats</Tab>
-            <Tab>Pré-Evoluções</Tab>
-          </TabList>
-
-          <TabPanel>
+        <Tabs
+          justify
+          defaultActiveKey="Sobre"
+          className="tabs"
+          style={{ fontSize: '14px', marginBottom: '1rem' }}
+        >
+          <Tab eventKey="Sobre" title="Sobre">
             <PokeAbout species={species} />
-          </TabPanel>
-          <TabPanel>
+          </Tab>
+          <Tab eventKey="Stats" title="Stats">
             <PokeStats />
-          </TabPanel>
-          <TabPanel>
+          </Tab>
+          <Tab eventKey="Pré-Evoluções" title="Pré-Evoluções">
             <PokeEvolutions species={species} />
-          </TabPanel>
+          </Tab>
         </Tabs>
-        {/* <nav className="navbar">
-          <button type="button" onClick={handleChooseAbout}>
-            Sobre
-          </button>
-          <button type="button" onClick={handleChooseStats}>
-            Stats
-          </button>
-          <button type="button" onClick={handleChooseEvolution}>
-            Pré-Evoluções
-          </button>
-        </nav>
-        {isAboutOption === true && <PokeAbout species={species} />}
-        {isStatsOption === true && <PokeStats />}
-        {isEvolutionOption === true && <PokeEvolutions species={species} />} */}
       </div>
     </Modal>
   );
