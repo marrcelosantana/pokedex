@@ -14,7 +14,7 @@ export function PokeAbout({ species }: PokeAboutProps) {
   return (
     <div className={styles.infoDetails}>
       <div className={styles.about}>
-        <span>{species?.flavor_text_entries[6].flavor_text}</span>
+        <span>{species?.flavor_text_entries[8].flavor_text}</span>
       </div>
       <div className={styles.moreDetails}>
         <div className={styles.leftDetails}>

@@ -114,9 +114,11 @@
         background: none;
         outline: 0;
         color: var(--gray-4);
+        font-weight: bold;
 
-        &:hover {
-          color: black;
+        &:focus {
+          color: var(--orange-fire);
+          font-weight: bold;
         }
       }
     }

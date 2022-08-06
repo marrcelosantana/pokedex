@@ -31,18 +31,30 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
   } = useContext(PokeModalContext);
 
   const [species, setSpecies] = useState<PokeSpecies>();
+  const [evolutionData, setEvolutionData] = useState();
 
   async function getSpecies() {
     if (pokemonDataSelected) {
       await api.get(pokemonDataSelected.species.url).then((response) => {
         setSpecies(response.data);
-        console.log(species);
       });
+    }
+  }
+
+  async function getEvolutionData() {
+    if (pokemonDataSelected) {
+      await api
+        .get(pokemonDataSelected.species?.evolution_chain?.url)
+        .then((response) => {
+          setEvolutionData(response.data);
+        });
+      console.log(evolutionData);
     }
   }
 
   useEffect(() => {
     getSpecies();
+    getEvolutionData();
   }, [pokemonDataSelected?.id]);
 
   return (

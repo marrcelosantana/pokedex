@@ -7,4 +7,7 @@ export type PokeSpecies = {
     name: string;
   };
   flavor_text_entries: FlavorTexts[];
+  evolution_chain: {
+    url: string;
+  };
 };
