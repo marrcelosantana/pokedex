@@ -1,3 +1,3 @@
 export type FlavorTexts = {
-  flavor_text: string;
+  flavor_text?: string;
 };

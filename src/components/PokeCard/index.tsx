@@ -58,18 +58,14 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
         </div>
       </div>
       <div className={styles.imageContainer}>
-        {pokemonData?.sprites?.other['official-artwork'].front_default ? (
-          <img
-            src={pokemonData.sprites.other['official-artwork'].front_default}
-            alt={pokemonData?.name}
-          />
-        ) : (
-          <img
-            src={pokeballImg}
-            alt={pokemonData?.name}
-            title={pokemonData?.name}
-          />
-        )}
+        <img
+          src={
+            pokemonData?.sprites.other['official-artwork'].front_default ||
+            `https://img.pokemondb.net/sprites/home/normal/${pokemonData?.name}.png` ||
+            pokeballImg
+          }
+          alt={pokemonData?.name}
+        />
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemonData?.name}</span>

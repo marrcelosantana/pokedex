@@ -4,6 +4,7 @@ import { PokeSpecies } from './PokeSpecies';
 import { PokeSprites } from './PokeSprites';
 import { PokeStats } from './PokeStats';
 import { PokeType } from './PokeTypes';
+import { PokeVarieties } from './PokeVarieties';
 
 export type PokemonData = {
   id: number;
@@ -16,4 +17,5 @@ export type PokemonData = {
   weight: number;
   species: PokeSpecies;
   stats: PokeStats[];
+  varieties?: PokeVarieties[];
 };

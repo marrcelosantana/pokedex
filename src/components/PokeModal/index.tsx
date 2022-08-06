@@ -4,6 +4,7 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { PokeContext } from '../../contexts/pokeContext';
+import pokeballImg from '../../assets/pokeball.png';
 import { getBackground } from '../../utils/utils';
 import { PokeAbout } from '../PokeAbout';
 import { PokeEvolutions } from '../PokeEvolutions';
@@ -11,7 +12,6 @@ import { PokeStats } from '../PokeStats';
 import { api } from '../../service/api';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
-import pokeballImg from '../../assets/pokeball.png';
 
 import './styles.scss';
 
@@ -25,7 +25,6 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
   const { isShiny, handleShinyTransform } = useContext(PokeModalContext);
 
   const [species, setSpecies] = useState<PokeSpecies>();
-  const [evolutionData, setEvolutionData] = useState();
 
   async function getSpecies() {
     if (pokemonDataSelected) {
@@ -35,20 +34,8 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
     }
   }
 
-  async function getEvolutionData() {
-    if (pokemonDataSelected) {
-      await api
-        .get(pokemonDataSelected.species?.evolution_chain?.url)
-        .then((response) => {
-          setEvolutionData(response.data);
-        });
-      console.log(evolutionData);
-    }
-  }
-
   useEffect(() => {
     getSpecies();
-    getEvolutionData();
   }, [pokemonDataSelected?.id]);
 
   return (
@@ -73,13 +60,19 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         <div className="pokeSprite">
           {isShiny === false ? (
             <img
-              src={pokemonDataSelected?.sprites.other.home.front_shiny}
+              src={
+                pokemonDataSelected?.sprites.other.home.front_shiny ||
+                `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`
+              }
               alt="Shiny"
               onClick={() => handleShinyTransform()}
             />
           ) : (
             <img
-              src={pokemonDataSelected?.sprites.other.home.front_default}
+              src={
+                pokemonDataSelected?.sprites.other.home.front_default ||
+                `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`
+              }
               alt={pokemonDataSelected?.name}
               onClick={() => handleShinyTransform()}
             />
@@ -94,19 +87,24 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
         />
         {isShiny === false ? (
           <img
-            src={pokemonDataSelected?.sprites.other.home.front_default}
+            src={
+              pokemonDataSelected?.sprites.other.home.front_default ||
+              `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
+              pokeballImg
+            }
             alt={pokemonDataSelected?.name}
             className="pokeAvatar"
           />
         ) : (
           <img
-            src={pokemonDataSelected?.sprites.other.home.front_shiny}
+            src={
+              pokemonDataSelected?.sprites.other.home.front_shiny ||
+              `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
+              pokeballImg
+            }
             alt={pokemonDataSelected?.name}
             className="pokeAvatar"
           />
-        )}
-        {pokemonDataSelected?.sprites.other.home.front_default === null && (
-          <img src={pokeballImg} alt="" className="pokeballImg" />
         )}
       </div>
       <div className="pokeInfo">
