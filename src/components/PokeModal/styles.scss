@@ -22,6 +22,10 @@
   flex-direction: column;
   align-items: center;
 
+  @media (max-height: 768px) {
+    height: 700px;
+  }
+
   header {
     width: 100%;
     height: 8.063rem;
@@ -75,6 +79,22 @@
         width: 90%;
       }
     }
+
+    @media (max-height: 768px) {
+      height: 6.063rem;
+
+      .title {
+        .pokeName {
+          font-size: 28px;
+          font-weight: 700;
+          text-transform: capitalize;
+        }
+
+        .pokeNumber {
+          font-size: 16px;
+        }
+      }
+    }
   }
 
   .pokeContainer {
@@ -95,6 +115,20 @@
       height: 25rem;
       margin-top: 4.8rem;
     }
+
+    @media (max-height: 768px) {
+      height: 23rem;
+
+      .background {
+        height: 23rem;
+      }
+
+      .pokeAvatar {
+        width: 22rem;
+        height: 22rem;
+        margin-top: 2rem;
+      }
+    }
   }
 
   .pokeInfo {
@@ -102,10 +136,6 @@
     background-color: var(--background);
     border-radius: 15px;
     font-size: 16px;
-  }
-
-  @media(max-height: 768px){
-    
   }
 }
 
