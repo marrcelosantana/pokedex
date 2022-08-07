@@ -12,4 +12,8 @@
   a:hover {
     color: black;
   }
+
+  @media(max-width: 1366px){
+    font-size: 14px;
+  }
 }

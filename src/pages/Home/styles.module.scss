@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   header {
     display: flex;
     align-items: center;
@@ -54,6 +55,15 @@
         color: var(--gray-4);
         margin-left: -2.5rem;
         cursor: pointer;
+      }
+
+      @media(max-width: 1366px){
+        input{
+          width: 30.688rem;
+          font-size: 16px;
+          padding: 0 10% 0 4%;
+          height: 3.5rem;
+        }
       }
     }
   }
