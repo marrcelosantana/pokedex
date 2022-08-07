@@ -12,6 +12,10 @@
   cursor: pointer;
   transition: filter 0.2s;
 
+  @media(max-width: 1366px){
+    width: 17rem;
+  }
+
   &:hover {
     filter: brightness(0.95);
   }
