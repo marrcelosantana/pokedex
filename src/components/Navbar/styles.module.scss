@@ -2,18 +2,11 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
-  font-size: 18px;
+  justify-content: space-between;
+  font-size: 16px;
   color: var(--gray-4);
-  padding: 0 0 0.2% 0;
-  border-bottom: 1px solid var(--gray-4);
 
-  a:hover {
-    color: black;
-  }
-
-  @media(max-width: 1366px){
+  @media (max-width: 1366px) {
     font-size: 14px;
   }
 }

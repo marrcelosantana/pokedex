@@ -15,8 +15,13 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [isOpenModal, setOpenModal] = useState(false);
+  const [search, setSearch] = useState('');
   const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
+
+  function onSearch() {
+    console.log(search);
+  }
 
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
@@ -54,8 +59,10 @@ export function Home() {
           <input
             type="text"
             placeholder="Pesquise um pokémon por nome ou número"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
           />
-          <FiSearch className={styles.searchIcon} />
+          <FiSearch className={styles.searchIcon} onClick={() => onSearch()} />
         </div>
         <span> </span>
       </header>

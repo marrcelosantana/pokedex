@@ -1,26 +1,38 @@
+import { Tab, Tabs } from 'react-bootstrap';
 import styles from './styles.module.scss';
 
 export function Navbar() {
   return (
     <nav className={styles.container}>
-      <a href="/">Todos</a>
-      <a href="/">Inseto</a>
-      <a href="/">Sombrio</a>
-      <a href="/">Dragão</a>
-      <a href="/">Elétrico</a>
-      <a href="/">Fada</a>
-      <a href="/">Lutador</a>
-      <a href="/">Fogo</a>
-      <a href="/">Voador</a>
-      <a href="/">Fantasma</a>
-      <a href="/">Planta</a>
-      <a href="/">Terrestre</a>
-      <a href="/">Gelo</a>
-      <a href="/">Normal</a>
-      <a href="/">Psíquico</a>
-      <a href="/">Pedra</a>
-      <a href="/">Aço</a>
-      <a href="/">Água</a>
+      <Tabs
+        defaultActiveKey="Stats"
+        className="tabs"
+        style={{
+          width: '100vw',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Tab eventKey="Todos" title="Todos" />
+        <Tab eventKey="Inseto" title="Inseto" />
+        <Tab eventKey="Sombrio" title="Sombrio" />
+        <Tab eventKey="Dragão" title="Dragão" />
+        <Tab eventKey="Elétrico" title="Elétrico" />
+        <Tab eventKey="Fada" title="Fada" />
+        <Tab eventKey="Lutador" title="Lutador" />
+        <Tab eventKey="Fogo" title="Fogo" />
+        <Tab eventKey="Voador" title="Voador" />
+        <Tab eventKey="Fantasma" title="Fantasma" />
+        <Tab eventKey="Planta" title="Planta" />
+        <Tab eventKey="Terrestre" title="Terrestre" />
+        <Tab eventKey="Gelo" title="Gelo" />
+        <Tab eventKey="Normal" title="Normal" />
+        <Tab eventKey="Psíquico" title="Psíquico" />
+        <Tab eventKey="Pedra" title="Pedra" />
+        <Tab eventKey="Aço" title="Aço" />
+        <Tab eventKey="Água" title="Água" />
+      </Tabs>
     </nav>
   );
 }
