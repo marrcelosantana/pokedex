@@ -19,6 +19,11 @@ export function Home() {
   const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
 
+  const lowerSerch = search.toLowerCase();
+  const pokemonsFilter = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(lowerSerch)
+  );
+
   function onSearch() {
     console.log(search);
   }
@@ -85,7 +90,7 @@ export function Home() {
           </select>
         </div>
         <div className={styles.pokeListContainer}>
-          {pokemons.map((pokemon: Pokemon) => (
+          {pokemonsFilter.map((pokemon: Pokemon) => (
             <span onClick={() => handleOpenModal(pokemon)}>
               <PokeCard key={pokemon.name} pokemon={pokemon} />
             </span>
