@@ -9,9 +9,9 @@ import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
 import { PokeModal } from '../../components/PokeModal';
 import { PokeContext } from '../../contexts/pokeContext';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 import styles from './styles.module.scss';
-import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
@@ -26,19 +26,6 @@ export function Home() {
   const pokemonsFilter = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(lowerSearch)
   );
-
-  // useEffect(() => {
-  //   const intersectionObserver = new IntersectionObserver((entries) => {
-  //     if (entries.some((entry) => entry.isIntersecting)) {
-  //       console.log('Elemento está visível');
-  //       setPokemonPerPage(pokemonPerPage + 24);
-  //     }
-  //   });
-
-  //   intersectionObserver.observe(document.querySelector('loadMore'));
-
-  //   return () => intersectionObserver.disconnect();
-  // });
 
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
