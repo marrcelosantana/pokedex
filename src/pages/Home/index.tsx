@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { AiOutlineReload, AiOutlineArrowUp } from 'react-icons/ai';
 import starImg from '../../assets/magic-star.svg';
 import { Pokemon } from '../../models/Pokemon';
 import { Carousel } from '../../components/Carousel';
@@ -17,8 +16,7 @@ export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [isOpenModal, setOpenModal] = useState(false);
   const [search, setSearch] = useState('');
-  const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
-    useContext(PokeContext);
+  const { pokemons, setPokemonSelected } = useContext(PokeContext);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
 
@@ -45,10 +43,6 @@ export function Home() {
     if (showPikachu === true) {
       setShowPikachu(false);
     }
-  }
-
-  function loadMorePokemons() {
-    setPokemonPerPage(pokemonPerPage + 32);
   }
 
   return (
@@ -92,27 +86,10 @@ export function Home() {
         </div>
         <div className={styles.pokeListContainer}>
           {pokemonsFilter.map((pokemon: Pokemon) => (
-            <span onClick={() => handleOpenModal(pokemon)} key={pokemon.name}>
-              <PokeCard pokemon={pokemon} />
+            <span onClick={() => handleOpenModal(pokemon)}>
+              <PokeCard key={pokemon.name} pokemon={pokemon} />
             </span>
           ))}
-        </div>
-        <div className={styles.loadContainer} id="loadMore">
-          <Button onClick={() => loadMorePokemons()}>
-            <span>Carregar mais...</span>
-            <AiOutlineReload size={24} />
-          </Button>
-          {pokemonPerPage >= 16 && (
-            <a
-              href="#"
-              className={styles.backToTop}
-              title="Voltar para o topo da página."
-            >
-              <Button>
-                <AiOutlineArrowUp size={24} />
-              </Button>
-            </a>
-          )}
         </div>
       </div>
       <PokeModal isOpenModal={isOpenModal} closeModal={handleCloseModal} />

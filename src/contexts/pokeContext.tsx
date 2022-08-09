@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
@@ -23,16 +24,27 @@ interface PokeProviderProps {
 
 export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
+  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+
+  function handleScroll(event: any) {
+    const scrollHeight = event.target.documentElement.scrollHeight;
+    const currentHeight = Math.ceil(
+      event.target.documentElement.scrollTop + window.innerHeight
+    );
+    if (currentHeight + 1 >= scrollHeight) {
+      setPokemonPerPage(pokemonPerPage + 4);
+    }
+  }
 
   useEffect(() => {
     api
       .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
       .then((response) => setPokemons(response.data.results));
+    window.addEventListener('scroll', handleScroll);
   }, [currentPage, pokemonPerPage]);
 
   useEffect(() => {

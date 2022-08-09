@@ -114,26 +114,5 @@
       align-items: center;
       gap: 2rem 5%;
     }
-
-    .loadContainer {
-      margin-top: 2rem;
-      padding-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      button {
-        border: 1px solid var(--gray-2);
-        font-weight: bold;
-      }
-
-      .backToTop {
-        button {
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-        }
-      }
-    }
   }
 }
