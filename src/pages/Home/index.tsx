@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineReload, AiOutlineArrowUp } from 'react-icons/ai';
 import starImg from '../../assets/magic-star.svg';
@@ -11,6 +11,7 @@ import { PokeModal } from '../../components/PokeModal';
 import { PokeContext } from '../../contexts/pokeContext';
 
 import styles from './styles.module.scss';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
@@ -19,14 +20,31 @@ export function Home() {
   const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
 
+  const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
+
   const lowerSearch = search.toLowerCase();
   const pokemonsFilter = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(lowerSearch)
   );
 
+  // useEffect(() => {
+  //   const intersectionObserver = new IntersectionObserver((entries) => {
+  //     if (entries.some((entry) => entry.isIntersecting)) {
+  //       console.log('Elemento está visível');
+  //       setPokemonPerPage(pokemonPerPage + 24);
+  //     }
+  //   });
+
+  //   intersectionObserver.observe(document.querySelector('loadMore'));
+
+  //   return () => intersectionObserver.disconnect();
+  // });
+
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
     setPokemonSelected(pokemon);
+    setIsShiny(false);
+    setSpriteIsShiny(true);
   }
 
   function handleCloseModal() {
@@ -92,7 +110,7 @@ export function Home() {
             </span>
           ))}
         </div>
-        <div className={styles.loadContainer}>
+        <div className={styles.loadContainer} id="loadMore">
           <Button onClick={() => loadMorePokemons()}>
             <span>Carregar mais...</span>
             <AiOutlineReload size={24} />

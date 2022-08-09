@@ -1,7 +1,14 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
 import { api } from '../service/api';
+import { PokeModalContext } from './pokeModalContext';
 
 interface PokeContextData {
   pokemons: Pokemon[];
