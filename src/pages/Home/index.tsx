@@ -92,8 +92,8 @@ export function Home() {
         </div>
         <div className={styles.pokeListContainer}>
           {pokemonsFilter.map((pokemon: Pokemon) => (
-            <span onClick={() => handleOpenModal(pokemon)}>
-              <PokeCard key={pokemon.name} pokemon={pokemon} />
+            <span onClick={() => handleOpenModal(pokemon)} key={pokemon.name}>
+              <PokeCard pokemon={pokemon} />
             </span>
           ))}
         </div>

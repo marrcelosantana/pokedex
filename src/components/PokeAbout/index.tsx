@@ -34,10 +34,15 @@ export function PokeAbout({ species }: PokeAboutProps) {
 
         <div className={styles.rightDetails}>
           <div className={styles.category}>
-            <span className={styles.detailTitle}>Espécie</span>
+            <span className={styles.detailTitle}>Tipos</span>
             <span className={styles.detailData}>
-              {pokemonDataSelected?.species.name}
+              {pokemonDataSelected?.types[0]?.type.name}
             </span>
+            {pokemonDataSelected?.types.length === 2 && (
+              <span className={styles.detailData}>
+                {pokemonDataSelected?.types[1]?.type.name}
+              </span>
+            )}
           </div>
           <div className={styles.abilities}>
             <span className={styles.detailTitle}>Habilidades</span>

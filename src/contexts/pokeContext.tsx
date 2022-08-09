@@ -1,14 +1,7 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
 import { api } from '../service/api';
-import { PokeModalContext } from './pokeModalContext';
 
 interface PokeContextData {
   pokemons: Pokemon[];
@@ -30,10 +23,10 @@ interface PokeProviderProps {
 
 export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
-  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
 
   useEffect(() => {
