@@ -19,14 +19,10 @@ export function Home() {
   const { pokemons, pokemonPerPage, setPokemonPerPage, setPokemonSelected } =
     useContext(PokeContext);
 
-  const lowerSerch = search.toLowerCase();
+  const lowerSearch = search.toLowerCase();
   const pokemonsFilter = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(lowerSerch)
+    pokemon.name.toLowerCase().includes(lowerSearch)
   );
-
-  function onSearch() {
-    console.log(search);
-  }
 
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
@@ -63,11 +59,11 @@ export function Home() {
         <div className={styles.searchContainer}>
           <input
             type="text"
-            placeholder="Pesquise um pokémon por nome ou número"
+            placeholder="Pesquise um pokémon pelo seu nome"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
-          <FiSearch className={styles.searchIcon} onClick={() => onSearch()} />
+          <FiSearch className={styles.searchIcon} />
         </div>
         <span> </span>
       </header>

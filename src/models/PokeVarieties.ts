@@ -1,7 +1,7 @@
 export type PokeVarieties = {
-  is_default: true;
-  pokemon: {
-    name: string;
-    url: string;
+  is_default?: boolean;
+  pokemon?: {
+    name?: string;
+    url?: string;
   };
 };

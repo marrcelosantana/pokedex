@@ -54,19 +54,17 @@
         height: 1.25rem;
         color: var(--gray-4);
         margin-left: -2.5rem;
-        cursor: pointer;
       }
 
-      @media(max-width: 1366px){
-        input{
+      @media (max-width: 1366px) {
+        input {
           width: 30.688rem;
           font-size: 16px;
           padding: 0 10% 0 4%;
           height: 3.5rem;
           margin-right: 6rem;
-
         }
-        .searchIcon{
+        .searchIcon {
           margin-left: -8.5rem;
         }
       }
@@ -78,7 +76,7 @@
     display: flex;
     flex-direction: column;
 
-    @media(max-width: 1366px) {
+    @media (max-width: 1366px) {
       width: 90%;
     }
 

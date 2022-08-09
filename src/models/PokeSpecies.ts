@@ -1,3 +1,4 @@
+import { PokeVarieties } from './PokeVarieties';
 import { FlavorTexts } from './FlavorTexts';
 
 export type PokeSpecies = {
@@ -10,4 +11,9 @@ export type PokeSpecies = {
   evolution_chain: {
     url: string;
   };
+  habitat: {
+    name: string;
+    url: string;
+  };
+  varieties?: PokeVarieties[];
 };

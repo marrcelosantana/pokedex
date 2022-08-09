@@ -1,3 +1,23 @@
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
 .container {
   width: 19rem;
   height: 22.125rem;
@@ -10,14 +30,14 @@
   padding: 15px;
   gap: 2%;
   cursor: pointer;
-  transition: filter 0.2s;
+  transition: box-shadow 0.2s;
 
-  @media(max-width: 1366px){
+  @media (max-width: 1366px) {
     width: 17rem;
   }
 
   &:hover {
-    filter: brightness(0.95);
+    box-shadow: 6px 8px 8px #00000029;
   }
 
   .icons {
@@ -77,4 +97,8 @@
       font-weight: bold;
     }
   }
+}
+
+.container:hover {
+  animation: bounce 0.8s;
 }
