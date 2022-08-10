@@ -19,13 +19,13 @@ export function PokeAbout({ species }: PokeAboutProps) {
       <div className={styles.moreDetails}>
         <div className={styles.leftDetails}>
           <div className={styles.wight}>
-            <span className={styles.detailTitle}>Peso</span>
+            <span className={styles.detailTitle}>Weight</span>
             <span className={styles.detailData}>
               {pokemonDataSelected?.weight} lbs
             </span>
           </div>
           <div className={styles.height}>
-            <span className={styles.detailTitle}>Altura</span>
+            <span className={styles.detailTitle}>Height</span>
             <span className={styles.detailData}>
               {pokemonDataSelected?.height}'00
             </span>
@@ -34,7 +34,7 @@ export function PokeAbout({ species }: PokeAboutProps) {
 
         <div className={styles.rightDetails}>
           <div className={styles.category}>
-            <span className={styles.detailTitle}>Tipos</span>
+            <span className={styles.detailTitle}>Types</span>
             <span className={styles.detailData}>
               {pokemonDataSelected?.types[0]?.type.name}
             </span>
@@ -45,7 +45,7 @@ export function PokeAbout({ species }: PokeAboutProps) {
             )}
           </div>
           <div className={styles.abilities}>
-            <span className={styles.detailTitle}>Habilidades</span>
+            <span className={styles.detailTitle}>Abilities</span>
             <div className={styles.detailData}>
               <span>{pokemonDataSelected?.abilities[0]?.ability.name}</span>
               <span>{pokemonDataSelected?.abilities[1]?.ability.name}</span>

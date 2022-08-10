@@ -117,13 +117,13 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
             marginBottom: '1rem',
           }}
         >
-          <Tab eventKey="Sobre" title="Sobre">
+          <Tab eventKey="About" title="About">
             <PokeAbout species={species} />
           </Tab>
           <Tab eventKey="Stats" title="Stats">
             <PokeStats />
           </Tab>
-          <Tab eventKey="Pré-Evoluções" title="Pré-Evoluções">
+          <Tab eventKey="Pre-Evolutions" title="Pre-Evolutions">
             <PokeEvolutions species={species} />
           </Tab>
         </Tabs>
