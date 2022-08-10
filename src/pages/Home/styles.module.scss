@@ -70,6 +70,7 @@
       }
     }
   }
+
   header {
     @media (max-width: 414px) {
       width: 100%;
@@ -126,6 +127,14 @@
 
     @media (max-width: 1366px) {
       width: 90%;
+    }
+
+    @media (max-width: 820px) {
+      .pokeListContainer {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding-left: 9%;
+      }
     }
 
     @media (max-width: 414px) {
