@@ -1,9 +1,7 @@
 import { useContext, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import starImg from '../../assets/magic-star.svg';
 import { Pokemon } from '../../models/Pokemon';
 import { Carousel } from '../../components/Carousel';
-import { Navbar } from '../../components/Navbar';
 import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
 import { PokeModal } from '../../components/PokeModal';
@@ -15,15 +13,10 @@ import styles from './styles.module.scss';
 export function Home() {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [isOpenModal, setOpenModal] = useState(false);
-  const [search, setSearch] = useState('');
-  const { pokemons, setPokemonSelected } = useContext(PokeContext);
+
+  const { pokemonsFilter, setPokemonSelected } = useContext(PokeContext);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
-
-  const lowerSearch = search.toLowerCase();
-  const pokemonsFilter = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(lowerSearch)
-  );
 
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
@@ -47,26 +40,6 @@ export function Home() {
 
   return (
     <div className={styles.container}>
-      <header>
-        <div className={styles.title}>
-          <img
-            src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
-            alt="Gengar"
-          />
-          <span>Pokédex</span>
-        </div>
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="Pesquise um pokémon pelo seu nome"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-          />
-          <FiSearch className={styles.searchIcon} />
-        </div>
-        <span> </span>
-      </header>
-      <Navbar />
       <div className={styles.content}>
         <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>

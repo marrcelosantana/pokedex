@@ -1,4 +1,3 @@
-/* eslint-disable prefer-destructuring */
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
@@ -10,10 +9,13 @@ interface PokeContextData {
   pokemonPerPage: number;
   pokemonData: PokemonData | undefined;
   pokemonDataSelected: PokemonData | undefined;
+  pokemonsFilter: any;
+  search: string;
   setPokemonPerPage(number: number): void;
   setPokemonSelected(pokemon: Pokemon): void;
   setPokemonData(pokemon: PokemonData): void;
   setPokemonDataSelected(pokemon: PokemonData): void;
+  setSearch(string: string): void;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -29,6 +31,13 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+
+  const [search, setSearch] = useState('');
+
+  const lowerSearch = search.toLowerCase();
+  const pokemonsFilter = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(lowerSearch)
+  );
 
   function handleScroll(event: any) {
     const scrollHeight = event.target.documentElement.scrollHeight;
@@ -67,6 +76,9 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         setPokemonData,
         pokemonDataSelected,
         setPokemonDataSelected,
+        pokemonsFilter,
+        search,
+        setSearch,
       }}
     >
       {children}
