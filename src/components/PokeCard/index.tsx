@@ -50,22 +50,31 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
             />
           ) : (
             <img
-              src={pokeballImg}
+              src={
+                `https://img.pokemondb.net/sprites/home/shiny/${pokemonData?.name}.png` ||
+                pokeballImg
+              }
               alt={pokemonData?.name}
-              title={pokemonData?.name}
+              title={`SHINY ${pokemonData?.name.toUpperCase()}`}
             />
           )}
         </div>
       </div>
       <div className={styles.imageContainer}>
-        <img
-          src={
-            pokemonData?.sprites.other['official-artwork'].front_default ||
-            `https://img.pokemondb.net/sprites/home/normal/${pokemonData?.name}.png` ||
-            pokeballImg
-          }
-          alt={pokemonData?.name}
-        />
+        {pokemonData?.sprites.other['official-artwork'].front_default ? (
+          <img
+            src={pokemonData?.sprites.other['official-artwork'].front_default}
+            alt={pokemonData?.name}
+          />
+        ) : (
+          <img
+            src={
+              `https://img.pokemondb.net/sprites/home/normal/${pokemonData?.name}.png` ||
+              pokeballImg
+            }
+            alt={pokemonData?.name}
+          />
+        )}
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemonData?.name}</span>
