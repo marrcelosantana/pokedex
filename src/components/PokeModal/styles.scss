@@ -137,6 +137,27 @@
     border-radius: 15px;
     font-size: 16px;
   }
+
+  @media (max-height: 700px) {
+    max-width: 25rem;
+    height: 550px;
+  }
+
+  @media(max-width: 414px){
+    width: 90%;
+    header{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .pokeContainer{
+      width: 100%;
+
+      .pokeAvatar{
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 .pokeballImg {
