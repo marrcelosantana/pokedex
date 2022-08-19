@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import starImg from '../../assets/magic-star.svg';
 import { Pokemon } from '../../models/Pokemon';
 import { Carousel } from '../../components/Carousel';
@@ -7,14 +7,23 @@ import { PokeCard } from '../../components/PokeCard';
 import { PokeModal } from '../../components/PokeModal';
 import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
+import { api } from '../../service/api';
 
 import styles from './styles.module.scss';
 
 export function Home() {
-  const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [isOpenModal, setOpenModal] = useState(false);
 
-  const { pokemonsFilter, setPokemonSelected } = useContext(PokeContext);
+  const {
+    pokemonsFilter,
+    setPokemonSelected,
+    showPikachu,
+    tradeImg,
+    pokemonPerPage,
+    currentPage,
+    setPokemons,
+    handleScroll,
+  } = useContext(PokeContext);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
 
@@ -29,18 +38,16 @@ export function Home() {
     setOpenModal(false);
   }
 
-  function tradeImg(): void {
-    if (showPikachu === false) {
-      setShowPikachu(true);
-    }
-    if (showPikachu === true) {
-      setShowPikachu(false);
-    }
-  }
+  useEffect(() => {
+    api
+      .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
+      .then((response) => setPokemons(response.data.results));
+    window.addEventListener('scroll', handleScroll);
+  }, [currentPage, pokemonPerPage]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
+    <div className={styles.pageContainer}>
+      <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>
           <Button onClick={() => tradeImg()}>
@@ -59,8 +66,8 @@ export function Home() {
         </div>
         <div className={styles.pokeListContainer}>
           {pokemonsFilter.map((pokemon: Pokemon) => (
-            <span onClick={() => handleOpenModal(pokemon)}>
-              <PokeCard key={pokemon.name} pokemon={pokemon} />
+            <span onClick={() => handleOpenModal(pokemon)} key={pokemon.name}>
+              <PokeCard pokemon={pokemon} />
             </span>
           ))}
         </div>
