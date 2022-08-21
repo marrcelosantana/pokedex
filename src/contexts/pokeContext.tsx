@@ -65,14 +65,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
     }
   }
 
-  useEffect(() => {
-    if (pokemonSelected) {
-      api.get(pokemonSelected.url).then((response) => {
-        setPokemonDataSelected(response.data);
-      });
-    }
-  }, [pokemonSelected]);
-
   return (
     <PokeContext.Provider
       value={{

@@ -21,10 +21,19 @@ interface ModalProps {
 }
 
 export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
-  const { pokemonDataSelected } = useContext(PokeContext);
+  const { pokemonDataSelected, pokemonSelected, setPokemonDataSelected } =
+    useContext(PokeContext);
   const { isShiny, handleShinyTransform } = useContext(PokeModalContext);
 
   const [species, setSpecies] = useState<PokeSpecies>();
+
+  useEffect(() => {
+    if (pokemonSelected) {
+      api.get(pokemonSelected.url).then((response) => {
+        setPokemonDataSelected(response.data);
+      });
+    }
+  }, [pokemonSelected]);
 
   async function getSpecies() {
     if (pokemonDataSelected) {
