@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
+import { api } from '../../service/api';
 import starImg from '../../assets/magic-star.svg';
 import { Button } from '../../components/Button';
 import { Carousel } from '../../components/Carousel';
 import { PokeContext } from '../../contexts/pokeContext';
 import { PokemonPerType } from '../../models/PokemonPerType';
-import { api } from '../../service/api';
 
 import styles from '../Home/styles.module.scss';
 
