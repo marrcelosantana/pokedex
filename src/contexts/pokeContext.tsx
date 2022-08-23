@@ -1,7 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
-import { api } from '../service/api';
 
 interface PokeContextData {
   pokemons: Pokemon[];
