@@ -14,6 +14,11 @@ import { GroundPage } from './pages/GroundPage';
 import { Home } from './pages/Home';
 import { IcePage } from './pages/IcePage';
 import { NormalPage } from './pages/NormalPage';
+import { PoisonPage } from './pages/PoisonPage';
+import { PsychicPage } from './pages/PsychicPage';
+import { RockPage } from './pages/RockPage';
+import { SteelPage } from './pages/SteelPage';
+import { WaterPage } from './pages/WaterPage';
 
 export function AppRoutes() {
   return (
@@ -34,6 +39,11 @@ export function AppRoutes() {
         <Route path="/ground-pokes" element={<GroundPage />} />
         <Route path="/ice-pokes" element={<IcePage />} />
         <Route path="/normal-pokes" element={<NormalPage />} />
+        <Route path="/psychic-pokes" element={<PsychicPage />} />
+        <Route path="/rock-pokes" element={<RockPage />} />
+        <Route path="/steel-pokes" element={<SteelPage />} />
+        <Route path="/water-pokes" element={<WaterPage />} />
+        <Route path="/poison-pokes" element={<PoisonPage />} />
       </Routes>
     </Router>
   );
