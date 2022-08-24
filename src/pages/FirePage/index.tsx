@@ -5,6 +5,7 @@ import { Carousel } from '../../components/Carousel';
 import { PokeContext } from '../../contexts/pokeContext';
 import { PokemonPerType } from '../../models/PokemonPerType';
 import { PokePerTypeCard } from '../../components/PokePerTypeCard';
+import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import starImg from '../../assets/magic-star.svg';
 
 import styles from '../Home/styles.module.scss';
@@ -38,8 +39,8 @@ export function FirePage() {
           </select>
         </div>
         <div className={styles.pokeListContainer}>
-          {pokemonsPerType?.pokemon.map((pokemon: any) => (
-            <span key={pokemon.pokemon.url}>
+          {pokemonsPerType?.pokemon.map((pokemon: PokePerTypeArrays) => (
+            <span key={pokemon.pokemon.name}>
               <PokePerTypeCard pokemon={pokemon} />
             </span>
           ))}

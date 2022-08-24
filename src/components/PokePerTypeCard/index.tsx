@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
 import { PokemonData } from '../../models/PokemonData';
+import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import pokeballImg from '../../assets/pokeball.png';
 
 import styles from '../PokeCard/styles.module.scss';
 
 export interface PokePerTypeProps {
-  pokemon: any;
+  pokemon: PokePerTypeArrays;
 }
 
 export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
@@ -21,7 +22,7 @@ export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
 
   useEffect(() => {
     getPokemonData();
-  }, [pokemon.url, pokemonPerTypeData?.id]);
+  }, [pokemon.pokemon.url, pokemonPerTypeData?.id]);
 
   return (
     <div className={styles.container}>
