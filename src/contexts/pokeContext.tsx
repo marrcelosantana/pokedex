@@ -31,16 +31,17 @@ interface PokeProviderProps {
 
 export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
-  const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
 
   const [search, setSearch] = useState('');
 
   const lowerSearch = search.toLowerCase();
+
   const pokemonsFilter = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(lowerSearch)
   );
