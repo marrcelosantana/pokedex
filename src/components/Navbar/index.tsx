@@ -7,56 +7,59 @@ export function Navbar() {
       <Link to="/">
         <span>Todos</span>
       </Link>
-      <Link to="">
+      <Link to="/bug-pokes">
         <span>Inseto</span>
       </Link>
-      <Link to="">
+      <Link to="/dark-pokes">
         <span>Sombrio</span>
       </Link>
-      <Link to="">
+      <Link to="/dragon-pokes">
         <span>Dragão</span>
       </Link>
-      <Link to="">
+      <Link to="/electric-pokes">
         <span>Elétrico</span>
       </Link>
-      <Link to="">
+      <Link to="/fairy-pokes">
         <span>Fada</span>
       </Link>
-      <Link to="">
+      <Link to="/fighting-pokes">
         <span>Lutador</span>
       </Link>
       <Link to="/fire-pokes">
         <span>Fogo</span>
       </Link>
-      <Link to="">
+      <Link to="/flying-pokes">
         <span>Voador</span>
       </Link>
-      <Link to="">
+      <Link to="/ghost-pokes">
         <span>Fantasma</span>
       </Link>
-      <Link to="">
+      <Link to="/grass-pokes">
         <span>Planta</span>
       </Link>
-      <Link to="">
+      <Link to="/ground-pokes">
         <span>Terrestre</span>
       </Link>
-      <Link to="">
+      <Link to="/ice-pokes">
         <span>Gelo</span>
       </Link>
-      <Link to="">
+      <Link to="/normal-pokes">
         <span>Normal</span>
       </Link>
-      <Link to="">
+      <Link to="/psychic-pokes">
         <span>Psíquico</span>
       </Link>
-      <Link to="">
+      <Link to="/rock-pokes">
         <span>Pedra</span>
       </Link>
-      <Link to="">
+      <Link to="/steel-pokes">
         <span>Aço</span>
       </Link>
-      <Link to="">
+      <Link to="/water-pokes">
         <span>Água</span>
+      </Link>
+      <Link to="/poison-pokes">
+        <span>Venenoso</span>
       </Link>
     </nav>
   );

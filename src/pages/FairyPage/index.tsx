@@ -10,14 +10,16 @@ import starImg from '../../assets/magic-star.svg';
 
 import styles from '../Home/styles.module.scss';
 
-export function FirePage() {
+export function FairyPage() {
   const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
 
   const { showPikachu, tradeImg, handleScroll, currentPage, pokemonPerPage } =
     useContext(PokeContext);
 
   useEffect(() => {
-    api.get(`/type/fire`).then((response) => setPokemonsPerType(response.data));
+    api
+      .get(`/type/fairy`)
+      .then((response) => setPokemonsPerType(response.data));
     window.addEventListener('scroll', handleScroll);
   }, [currentPage, pokemonPerPage]);
 

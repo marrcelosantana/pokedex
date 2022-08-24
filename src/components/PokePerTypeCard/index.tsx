@@ -3,7 +3,6 @@ import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
 import { PokemonData } from '../../models/PokemonData';
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
-import pokeballImg from '../../assets/pokeball.png';
 
 import styles from '../PokeCard/styles.module.scss';
 
@@ -42,42 +41,25 @@ export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
           )}
         </div>
         <div className={styles.pokeSprite}>
-          {pokemonPerTypeData?.sprites?.other.home.front_shiny ? (
-            <img
-              src={pokemonPerTypeData?.sprites?.other.home.front_shiny}
-              alt="mini shiny sprite"
-              title={`SHINY ${pokemonPerTypeData?.name.toUpperCase()}`}
-            />
-          ) : (
-            <img
-              src={
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonPerTypeData?.name}.png` ||
-                pokeballImg
-              }
-              alt={pokemonPerTypeData?.name}
-              title={`SHINY ${pokemonPerTypeData?.name.toUpperCase()}`}
-            />
-          )}
+          <img
+            src={
+              pokemonPerTypeData?.sprites?.other.home.front_shiny ||
+              `https://img.pokemondb.net/sprites/home/shiny/${pokemonPerTypeData?.name}.png`
+            }
+            alt="mini shiny sprite"
+            title={`SHINY ${pokemonPerTypeData?.name.toUpperCase()}`}
+          />
         </div>
       </div>
       <div className={styles.imageContainer}>
-        {pokemonPerTypeData?.sprites.other['official-artwork'].front_default ? (
-          <img
-            src={
-              pokemonPerTypeData?.sprites.other['official-artwork']
-                .front_default
-            }
-            alt={pokemonPerTypeData?.name}
-          />
-        ) : (
-          <img
-            src={
-              `https://img.pokemondb.net/sprites/home/normal/${pokemonPerTypeData?.name}.png` ||
-              pokeballImg
-            }
-            alt={pokemonPerTypeData?.name}
-          />
-        )}
+        <img
+          src={
+            pokemonPerTypeData?.sprites.other['official-artwork']
+              .front_default ||
+            `https://img.pokemondb.net/sprites/home/normal/${pokemonPerTypeData?.name}.png`
+          }
+          alt={pokemonPerTypeData?.name}
+        />
       </div>
       <div className={styles.infos}>
         <span className={styles.pokeName}>{pokemonPerTypeData?.name}</span>
