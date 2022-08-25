@@ -3,6 +3,7 @@ import { api } from '../../service/api';
 import { getIconType } from '../../utils/utils';
 import { PokemonData } from '../../models/PokemonData';
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
+import pokeballImg from '../../assets/pokeball.png';
 
 import styles from '../PokeCard/styles.module.scss';
 
@@ -13,14 +14,14 @@ export interface PokePerTypeProps {
 export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
   const [pokemonPerTypeData, setPokemonPerTypeData] = useState<PokemonData>();
 
-  async function getPokemonData() {
+  async function getPokemonPerTypeData() {
     await api.get(pokemon.pokemon.url).then((response) => {
       setPokemonPerTypeData(response.data);
     });
   }
 
   useEffect(() => {
-    getPokemonData();
+    getPokemonPerTypeData();
   }, [pokemon.pokemon.url, pokemonPerTypeData?.id]);
 
   return (

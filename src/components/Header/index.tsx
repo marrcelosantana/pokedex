@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { PokeContext } from '../../contexts/pokeContext';
+import pokedexImg from '../../assets/Pokédex_logo.png';
 
 import styles from './styles.module.scss';
 
@@ -9,13 +10,7 @@ export function Header() {
 
   return (
     <header>
-      <div className={styles.title}>
-        <img
-          src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif"
-          alt="Gengar"
-        />
-        <span>Pokédex</span>
-      </div>
+      <img src={pokedexImg} alt="Pokedex" className={styles.logo} />
       <div className={styles.searchContainer}>
         <input
           type="text"

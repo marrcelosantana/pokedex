@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 export function Navbar() {
   return (
     <nav className={styles.container}>
-      <Link to="/">
+      <Link to="/" className={styles.active}>
         <span>Todos</span>
       </Link>
       <Link to="/bug-pokes">
