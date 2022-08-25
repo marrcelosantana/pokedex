@@ -13,6 +13,10 @@
     max-width: 100%;
   }
 
+  @media (max-width: 414px) {
+    margin: 20px;  
+  }
+
   a {
     display: inline-block;
     position: relative;
