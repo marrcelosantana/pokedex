@@ -11,9 +11,8 @@ import starImg from '../../assets/magic-star.svg';
 import styles from '../Home/styles.module.scss';
 
 export function ElectricPage() {
-  const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
-
-  const { showPikachu, tradeImg } = useContext(PokeContext);
+  const { showPikachu, tradeImg, pokemonsPerType, setPokemonsPerType } =
+    useContext(PokeContext);
 
   useEffect(() => {
     api

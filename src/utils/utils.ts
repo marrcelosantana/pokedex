@@ -59,7 +59,7 @@ export function getIconType(type: string | undefined) {
     default:
       break;
   }
-  return icon ? `../../public/PokeTypes-Icons/${icon}-icon.svg` : undefined;
+  return icon ? `/PokeTypes-Icons/${icon}-icon.svg` : undefined;
 }
 
 export function getBackground(type: string | undefined) {
@@ -123,5 +123,5 @@ export function getBackground(type: string | undefined) {
     default:
       break;
   }
-  return icon ? `../../public/PokeBackgrounds/${icon}-bg.jpg` : undefined;
+  return icon ? `/PokeBackgrounds/${icon}-bg.jpg` : undefined;
 }

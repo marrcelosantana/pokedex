@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
+import { PokemonPerType } from '../models/PokemonPerType';
 
 interface PokeContextData {
   pokemons: Pokemon[];
@@ -12,6 +13,7 @@ interface PokeContextData {
   pokemonDataSelected: PokemonData | undefined;
   pokemonsFilter: any;
   search: string;
+  pokemonsPerType: PokemonPerType | undefined;
   setPokemonPerPage(number: number): void;
   setPokemons(pokemon: Pokemon[]): void;
   setShowPikachu(boolean: boolean): void;
@@ -21,6 +23,7 @@ interface PokeContextData {
   setSearch(string: string): void;
   tradeImg(): void;
   handleScroll(event: any): void;
+  setPokemonsPerType(pokemon: PokemonPerType): void;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -37,6 +40,7 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+  const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
 
   const [search, setSearch] = useState('');
 
@@ -86,6 +90,8 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         currentPage,
         setPokemons,
         handleScroll,
+        pokemonsPerType,
+        setPokemonsPerType,
       }}
     >
       {children}

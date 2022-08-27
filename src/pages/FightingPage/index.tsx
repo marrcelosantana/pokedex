@@ -11,17 +11,14 @@ import starImg from '../../assets/magic-star.svg';
 import styles from '../Home/styles.module.scss';
 
 export function FightingPage() {
-  const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
-
-  const { showPikachu, tradeImg, handleScroll, currentPage, pokemonPerPage } =
+  const { showPikachu, tradeImg, pokemonsPerType, setPokemonsPerType } =
     useContext(PokeContext);
 
   useEffect(() => {
     api
       .get(`/type/fighting`)
       .then((response) => setPokemonsPerType(response.data));
-    window.addEventListener('scroll', handleScroll);
-  }, [currentPage, pokemonPerPage]);
+  }, []);
 
   return (
     <div className={styles.pageContainer}>
