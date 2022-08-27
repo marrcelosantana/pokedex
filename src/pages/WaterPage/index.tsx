@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { api } from '../../service/api';
 import { Button } from '../../components/Button';
 import { Carousel } from '../../components/Carousel';
 import { PokeContext } from '../../contexts/pokeContext';
-import { PokemonPerType } from '../../models/PokemonPerType';
 import { PokePerTypeCard } from '../../components/PokePerTypeCard';
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import starImg from '../../assets/magic-star.svg';
