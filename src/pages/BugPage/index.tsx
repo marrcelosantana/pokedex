@@ -6,7 +6,6 @@ import { PokeContext } from '../../contexts/pokeContext';
 import { PokePerTypeCard } from '../../components/PokePerTypeCard';
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import { PokePerTypeModal } from '../../components/PokePerTypeModal';
-import { PokemonPerType } from '../../models/PokemonPerType';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import starImg from '../../assets/magic-star.svg';
 
