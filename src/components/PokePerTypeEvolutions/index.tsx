@@ -4,15 +4,14 @@ import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokeSpecies } from '../../models/PokeSpecies';
 
-import styles from './styles.module.scss';
+import styles from '../PokeEvolutions/styles.module.scss';
 
 interface PokeEvolutionsProps {
   species: PokeSpecies | undefined;
 }
 
-export function PokeEvolutions({ species }: PokeEvolutionsProps) {
-  const { pokemonDataSelected, pokemonsPerTypeDataSelected } =
-    useContext(PokeContext);
+export function PokePerTypeEvolutions({ species }: PokeEvolutionsProps) {
+  const { pokemonsPerTypeDataSelected } = useContext(PokeContext);
   const { isShiny } = useContext(PokeModalContext);
   return (
     <div className={styles.container}>
@@ -47,31 +46,19 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
         <div className={styles.spriteContainer}>
           {isShiny === false ? (
             <img
-              src={
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonsPerTypeDataSelected?.name}.png`
-              }
+              src={`https://img.pokemondb.net/sprites/home/normal/${pokemonsPerTypeDataSelected?.name}.png`}
               alt="sprite evolution"
-              title={
-                pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name
-              }
+              title={pokemonsPerTypeDataSelected?.name}
             />
           ) : (
             <img
-              src={
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonsPerTypeDataSelected?.name}.png`
-              }
+              src={`https://img.pokemondb.net/sprites/home/shiny/${pokemonsPerTypeDataSelected?.name}.png`}
               alt="sprite evolution"
-              title={
-                pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name
-              }
+              title={pokemonsPerTypeDataSelected?.name}
             />
           )}
         </div>
-        <span>
-          {pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name}
-        </span>
+        <span>{pokemonsPerTypeDataSelected?.name}</span>
       </div>
     </div>
   );

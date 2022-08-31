@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
 import { PokemonPerType } from '../models/PokemonPerType';
+import { PokePerTypeArrays } from '../models/PokePerTypeArrays';
 
 interface PokeContextData {
   pokemons: Pokemon[];
@@ -14,6 +15,10 @@ interface PokeContextData {
   pokemonsFilter: any;
   search: string;
   pokemonsPerType: PokemonPerType | undefined;
+  pokemonsPerTypeSelected: PokePerTypeArrays | undefined;
+  pokemonsPerTypeData: PokemonData | undefined;
+  pokemonsPerTypeDataSelected: PokemonData | undefined;
+
   setPokemonPerPage(number: number): void;
   setPokemons(pokemon: Pokemon[]): void;
   setShowPikachu(boolean: boolean): void;
@@ -24,6 +29,9 @@ interface PokeContextData {
   tradeImg(): void;
   handleScroll(event: any): void;
   setPokemonsPerType(pokemon: PokemonPerType): void;
+  setPokemonsPerTypeSelected(pokemon: PokePerTypeArrays): void;
+  setPokemonsPerTypeData(pokemon: PokemonData): void;
+  setPokemonsPerTypeDataSelected(pokemon: PokemonData): void;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -40,7 +48,13 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+
   const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
+  const [pokemonsPerTypeSelected, setPokemonsPerTypeSelected] =
+    useState<PokePerTypeArrays>();
+  const [pokemonsPerTypeData, setPokemonsPerTypeData] = useState<PokemonData>();
+  const [pokemonsPerTypeDataSelected, setPokemonsPerTypeDataSelected] =
+    useState<PokemonData>();
 
   const [search, setSearch] = useState('');
 
@@ -92,6 +106,12 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         handleScroll,
         pokemonsPerType,
         setPokemonsPerType,
+        pokemonsPerTypeData,
+        setPokemonsPerTypeData,
+        pokemonsPerTypeDataSelected,
+        setPokemonsPerTypeDataSelected,
+        pokemonsPerTypeSelected,
+        setPokemonsPerTypeSelected,
       }}
     >
       {children}

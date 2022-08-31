@@ -3,15 +3,15 @@ import Modal from 'react-modal';
 import { AiOutlineLeft } from 'react-icons/ai';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { api } from '../../service/api';
 import { PokeContext } from '../../contexts/pokeContext';
-import pokeballImg from '../../assets/pokeball.png';
 import { getBackground } from '../../utils/utils';
 import { PokeAbout } from '../PokeAbout';
 import { PokeEvolutions } from '../PokeEvolutions';
 import { PokeStats } from '../PokeStats';
-import { api } from '../../service/api';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
+import pokeballImg from '../../assets/pokeball.png';
 
 import './styles.scss';
 
