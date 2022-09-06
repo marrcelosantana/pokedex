@@ -7,27 +7,31 @@ import { PokePerTypeArrays } from '../models/PokePerTypeArrays';
 interface PokeContextData {
   pokemons: Pokemon[];
   pokemonSelected: Pokemon | undefined;
+  pokemonData: PokemonData | undefined;
+  pokemonDataSelected: PokemonData | undefined;
+
   currentPage: number;
   pokemonPerPage: number;
   showPikachu: boolean;
-  pokemonData: PokemonData | undefined;
-  pokemonDataSelected: PokemonData | undefined;
   pokemonsFilter: any;
   search: string;
+
   pokemonsPerType: PokemonPerType | undefined;
   pokemonsPerTypeSelected: PokePerTypeArrays | undefined;
   pokemonsPerTypeData: PokemonData | undefined;
   pokemonsPerTypeDataSelected: PokemonData | undefined;
 
-  setPokemonPerPage(number: number): void;
   setPokemons(pokemon: Pokemon[]): void;
-  setShowPikachu(boolean: boolean): void;
   setPokemonSelected(pokemon: Pokemon): void;
   setPokemonData(pokemon: PokemonData): void;
   setPokemonDataSelected(pokemon: PokemonData): void;
+
+  setPokemonPerPage(number: number): void;
+  setShowPikachu(boolean: boolean): void;
   setSearch(string: string): void;
   tradeImg(): void;
   handleScroll(event: any): void;
+
   setPokemonsPerType(pokemon: PokemonPerType): void;
   setPokemonsPerTypeSelected(pokemon: PokePerTypeArrays): void;
   setPokemonsPerTypeData(pokemon: PokemonData): void;
@@ -43,11 +47,12 @@ interface PokeProviderProps {
 export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [pokemonSelected, setPokemonSelected] = useState<Pokemon>();
+  const [pokemonData, setPokemonData] = useState<PokemonData>();
+  const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
+
   const [pokemonPerPage, setPokemonPerPage] = useState(8);
   const [currentPage] = useState(0);
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
-  const [pokemonData, setPokemonData] = useState<PokemonData>();
-  const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
 
   const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
   const [pokemonsPerTypeSelected, setPokemonsPerTypeSelected] =
@@ -57,7 +62,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
     useState<PokemonData>();
 
   const [search, setSearch] = useState('');
-
   const lowerSearch = search.toLowerCase();
 
   const pokemonsFilter = pokemons.filter((pokemon) =>
@@ -87,14 +91,16 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
     <PokeContext.Provider
       value={{
         pokemons,
-        pokemonPerPage,
-        setPokemonPerPage,
-        pokemonSelected,
-        setPokemonSelected,
+        setPokemons,
         pokemonData,
         setPokemonData,
+        pokemonSelected,
+        setPokemonSelected,
         pokemonDataSelected,
         setPokemonDataSelected,
+
+        pokemonPerPage,
+        setPokemonPerPage,
         pokemonsFilter,
         search,
         setSearch,
@@ -102,8 +108,8 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
         setShowPikachu,
         tradeImg,
         currentPage,
-        setPokemons,
         handleScroll,
+
         pokemonsPerType,
         setPokemonsPerType,
         pokemonsPerTypeData,
