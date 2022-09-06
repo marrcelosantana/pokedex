@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 export function Navbar() {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <Link to="/" className={styles.active}>
         <span>Todos</span>
       </Link>
@@ -61,6 +61,6 @@ export function Navbar() {
       <Link to="/poison-pokes">
         <span>Venenoso</span>
       </Link>
-    </div>
+    </nav>
   );
 }

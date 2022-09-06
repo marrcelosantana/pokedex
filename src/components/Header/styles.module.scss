@@ -5,10 +5,23 @@ header {
   width: 100%;
   padding: 1.5%;
 
-  .logo {
-    width: 12rem;
-    height: 4rem;
-    margin-bottom: 10px;
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    span {
+      font-weight: bold;
+      color: var(--gray-5);
+      font-size: 28px;
+    }
+
+    .sprite {
+      width: 4rem;
+      height: 3rem;
+      margin-bottom: 10px;
+    }
   }
 
   .searchContainer {
