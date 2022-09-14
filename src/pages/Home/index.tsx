@@ -54,7 +54,7 @@ export function Home() {
             <span>Me surpreenda</span>
             <img src={starImg} alt="magic star" />
           </Button>
-          <select>
+          {/* <select>
             <option value="" disabled selected hidden>
               Visualizado por...
             </option>
@@ -62,7 +62,7 @@ export function Home() {
             <option value="">Ordem Decrescente</option>
             <option value="">De A - Z</option>
             <option value="">De Z - A</option>
-          </select>
+          </select> */}
         </div>
         <div className={styles.pokeListContainer}>
           {pokemonsFilter.map((pokemon: Pokemon) => (
