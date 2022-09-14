@@ -69,15 +69,10 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   );
 
   function tradeImg(): void {
-    if (showPikachu === false) {
-      setShowPikachu(true);
-    }
-    if (showPikachu === true) {
-      setShowPikachu(false);
-    }
+    setShowPikachu(!showPikachu);
   }
 
-  function handleScroll(event: any) {
+  function handleScroll(event: any): void {
     const scrollHeight = event.target.documentElement.scrollHeight;
     const currentHeight = Math.ceil(
       event.target.documentElement.scrollTop + window.innerHeight

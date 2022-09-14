@@ -5,61 +5,61 @@ export function Navbar() {
   return (
     <nav className={styles.container}>
       <Link to="/" className={styles.active}>
-        <span>Todos</span>
+        <a>Todos</a>
       </Link>
       <Link to="/bug-pokes">
-        <span>Inseto</span>
+        <a>Inseto</a>
       </Link>
       <Link to="/dark-pokes">
-        <span>Sombrio</span>
+        <a>Sombrio</a>
       </Link>
       <Link to="/dragon-pokes">
-        <span>Dragão</span>
+        <a>Dragão</a>
       </Link>
       <Link to="/electric-pokes">
-        <span>Elétrico</span>
+        <a>Elétrico</a>
       </Link>
       <Link to="/fairy-pokes">
-        <span>Fada</span>
+        <a>Fada</a>
       </Link>
       <Link to="/fighting-pokes">
-        <span>Lutador</span>
+        <a>Lutador</a>
       </Link>
       <Link to="/fire-pokes">
-        <span>Fogo</span>
+        <a>Fogo</a>
       </Link>
       <Link to="/flying-pokes">
-        <span>Voador</span>
+        <a>Voador</a>
       </Link>
       <Link to="/ghost-pokes">
-        <span>Fantasma</span>
+        <a>Fantasma</a>
       </Link>
       <Link to="/grass-pokes">
-        <span>Planta</span>
+        <a>Planta</a>
       </Link>
       <Link to="/ground-pokes">
-        <span>Terrestre</span>
+        <a>Terrestre</a>
       </Link>
       <Link to="/ice-pokes">
-        <span>Gelo</span>
+        <a>Gelo</a>
       </Link>
       <Link to="/normal-pokes">
-        <span>Normal</span>
+        <a>Normal</a>
       </Link>
       <Link to="/psychic-pokes">
-        <span>Psíquico</span>
+        <a>Psíquico</a>
       </Link>
       <Link to="/rock-pokes">
-        <span>Pedra</span>
+        <a>Pedra</a>
       </Link>
       <Link to="/steel-pokes">
-        <span>Aço</span>
+        <a>Aço</a>
       </Link>
       <Link to="/water-pokes">
-        <span>Água</span>
+        <a>Água</a>
       </Link>
       <Link to="/poison-pokes">
-        <span>Venenoso</span>
+        <a>Venenoso</a>
       </Link>
     </nav>
   );

@@ -34,7 +34,7 @@ export function Home() {
     setSpriteIsShiny(true);
   }
 
-  function handleCloseModal() {
+  function handleCloseModal(): void {
     setOpenModal(false);
   }
 
