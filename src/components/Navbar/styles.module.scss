@@ -1,12 +1,15 @@
 .container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: var(--gray-4);
-  padding: 0 1% 0 1%;
-  outline: 0;
+  ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--gray-4);
+    padding: 0 1% 0 1%;
+    outline: 0;
+  }
 
   @media (max-width: 1366px) {
     font-size: 14px;
@@ -17,34 +20,12 @@
     margin: 20px;
   }
 
-  a {
-    padding: 0.2% 0.4%;
-    font-weight: bold;
-  }
-
-  a {
-    display: inline-block;
-    position: relative;
+  span {
     transition: color 0.2s;
+    padding: 0.2% 0.4%;
 
     &:hover {
       color: var(--gray-5);
-    }
-
-    &.active {
-      color: var(--gray-5);
-      font-weight: bold;
-    }
-
-    &.active::after {
-      content: '';
-      height: 1.5px;
-      border-radius: 2px 2px 0 0;
-      width: 100%;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--gray-5);
     }
   }
 }
