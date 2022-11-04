@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 export function Navbar() {
   const activeStyle = {
     textDecoration: 'underline',
+    textDecorationColor: '#4d4d4d',
     color: '#4d4d4d',
     fontWeight: 'bold',
   };
