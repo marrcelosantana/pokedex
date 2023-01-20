@@ -23,10 +23,14 @@ export function GhostPage() {
 
   const [isOpenModal, setOpenModal] = useState(false);
 
-  useEffect(() => {
-    api
+  async function getPokemons() {
+    await api
       .get(`/type/ghost`)
       .then((response) => setPokemonsPerType(response.data));
+  }
+
+  useEffect(() => {
+    getPokemons();
   }, []);
 
   function handleOpenModal(pokemon: PokePerTypeArrays): void {

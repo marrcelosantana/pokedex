@@ -38,11 +38,15 @@ export function Home() {
     setOpenModal(false);
   }
 
-  useEffect(() => {
-    api
+  async function getPokemons() {
+    await api
       .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
       .then((response) => setPokemons(response.data.results));
     window.addEventListener('scroll', handleScroll);
+  }
+
+  useEffect(() => {
+    getPokemons();
   }, [currentPage, pokemonPerPage]);
 
   return (

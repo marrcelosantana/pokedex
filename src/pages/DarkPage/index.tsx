@@ -23,8 +23,14 @@ export function DarkPage() {
 
   const [isOpenModal, setOpenModal] = useState(false);
 
+  async function getPokemons() {
+    await api
+      .get('/type/dark')
+      .then((response) => setPokemonsPerType(response.data));
+  }
+
   useEffect(() => {
-    api.get('/type/dark').then((response) => setPokemonsPerType(response.data));
+    getPokemons();
   }, []);
 
   function handleOpenModal(pokemon: PokePerTypeArrays): void {

@@ -27,12 +27,16 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
 
   const [species, setSpecies] = useState<PokeSpecies>();
 
-  useEffect(() => {
+  async function getPokemonSelected() {
     if (pokemonSelected) {
-      api.get(pokemonSelected.url).then((response) => {
+      await api.get(pokemonSelected.url).then((response) => {
         setPokemonDataSelected(response.data);
       });
     }
+  }
+
+  useEffect(() => {
+    getPokemonSelected();
   }, [pokemonSelected]);
 
   async function getSpecies() {

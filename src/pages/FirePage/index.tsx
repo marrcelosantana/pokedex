@@ -23,8 +23,14 @@ export function FirePage() {
 
   const [isOpenModal, setOpenModal] = useState(false);
 
+  async function getPokemons() {
+    await api
+      .get(`/type/fire`)
+      .then((response) => setPokemonsPerType(response.data));
+  }
+
   useEffect(() => {
-    api.get(`/type/fire`).then((response) => setPokemonsPerType(response.data));
+    getPokemons();
   }, []);
 
   function handleOpenModal(pokemon: PokePerTypeArrays): void {

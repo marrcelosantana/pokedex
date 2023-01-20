@@ -34,10 +34,14 @@ export function WaterPage() {
     setOpenModal(false);
   }
 
-  useEffect(() => {
-    api
+  async function getPokemons() {
+    await api
       .get('/type/water')
       .then((response) => setPokemonsPerType(response.data));
+  }
+
+  useEffect(() => {
+    getPokemons();
   }, []);
 
   return (

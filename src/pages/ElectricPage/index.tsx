@@ -34,10 +34,14 @@ export function ElectricPage() {
     setOpenModal(false);
   }
 
-  useEffect(() => {
-    api
+  async function getPokemons() {
+    await api
       .get('/type/electric')
       .then((response) => setPokemonsPerType(response.data));
+  }
+
+  useEffect(() => {
+    getPokemons();
   }, []);
 
   return (

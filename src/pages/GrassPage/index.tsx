@@ -23,10 +23,14 @@ export function GrassPage() {
 
   const [isOpenModal, setOpenModal] = useState(false);
 
-  useEffect(() => {
+  async function getPokemons() {
     api
       .get('/type/grass')
       .then((response) => setPokemonsPerType(response.data));
+  }
+
+  useEffect(() => {
+    getPokemons();
   }, []);
 
   function handleOpenModal(pokemon: PokePerTypeArrays): void {
