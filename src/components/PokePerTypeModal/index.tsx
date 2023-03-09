@@ -124,12 +124,14 @@ export function PokePerTypeModal({ isOpenModal, closeModal }: ModalProps) {
       </div>
       <div className="pokeInfo">
         <Tabs
-          justify
           defaultActiveKey="Stats"
           className="tabs"
           style={{
             fontSize: '14px',
             marginBottom: '1rem',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'space-around',
           }}
         >
           <Tab eventKey="About" title="About">
