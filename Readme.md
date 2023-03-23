@@ -8,6 +8,10 @@
 
 A pokedéx é um site para você conhecer todos os detalhes sobre os Pokémons!
 
+Link da aplicação em produção:
+
+https://pokedex-react-marcelo.surge.sh/
+
 ### Tecnologias Usadas
 
 - [React](https://pt-br.reactjs.org/)
