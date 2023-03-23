@@ -38,9 +38,3 @@ $ yarn
 $ npm run dev
 
 ```
-
-### Aplicação em funcionamento
-
-|                            Home                             |
-| :---------------------------------------------------------: |
-| <img src= "public/Pokedex-Preview-Made-with-Clipchamp.gif"> |
