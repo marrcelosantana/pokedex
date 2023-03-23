@@ -12,6 +12,7 @@ import { PokeStats } from '../PokeStats';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import pokeballImg from '../../assets/pokeball.png';
+import { Loading } from '../Loading';
 
 import './styles.scss';
 
@@ -58,91 +59,97 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      <header>
-        <button type="button" onClick={() => closeModal()}>
-          <AiOutlineLeft size={20} />
-        </button>
-        <div className="title">
-          <span className="pokeName">{pokemonDataSelected?.name}</span>
-          <span className="pokeNumber">
-            #{Number(pokemonDataSelected?.id) < 100 && <span>0</span>}
-            {Number(pokemonDataSelected?.id) < 10 && <span>0</span>}
-            {pokemonDataSelected?.id}
-          </span>
-        </div>
-        <div className="pokeSprite">
-          {isShiny === false ? (
+      {!pokemonDataSelected ? (
+        <Loading />
+      ) : (
+        <div style={{ width: '100%', flex: 1 }}>
+          <header>
+            <button type="button" onClick={() => closeModal()}>
+              <AiOutlineLeft size={20} />
+            </button>
+            <div className="title">
+              <span className="pokeName">{pokemonDataSelected?.name}</span>
+              <span className="pokeNumber">
+                #{Number(pokemonDataSelected?.id) < 100 && <span>0</span>}
+                {Number(pokemonDataSelected?.id) < 10 && <span>0</span>}
+                {pokemonDataSelected?.id}
+              </span>
+            </div>
+            <div className="pokeSprite">
+              {isShiny === false ? (
+                <img
+                  src={
+                    pokemonDataSelected?.sprites.other.home.front_shiny ||
+                    `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`
+                  }
+                  alt="Shiny"
+                  onClick={() => handleShinyTransform()}
+                />
+              ) : (
+                <img
+                  src={
+                    pokemonDataSelected?.sprites.other.home.front_default ||
+                    `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`
+                  }
+                  alt={pokemonDataSelected?.name}
+                  onClick={() => handleShinyTransform()}
+                />
+              )}
+            </div>
+          </header>
+          <div className="pokeContainer">
             <img
-              src={
-                pokemonDataSelected?.sprites.other.home.front_shiny ||
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`
-              }
-              alt="Shiny"
-              onClick={() => handleShinyTransform()}
+              src={getBackground(pokemonDataSelected?.types[0].type.name)}
+              alt="bg"
+              className="background"
             />
-          ) : (
-            <img
-              src={
-                pokemonDataSelected?.sprites.other.home.front_default ||
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`
-              }
-              alt={pokemonDataSelected?.name}
-              onClick={() => handleShinyTransform()}
-            />
-          )}
+            {isShiny === false ? (
+              <img
+                src={
+                  pokemonDataSelected?.sprites.other.home.front_default ||
+                  `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
+                  pokeballImg
+                }
+                alt={pokemonDataSelected?.name}
+                className="pokeAvatar"
+              />
+            ) : (
+              <img
+                src={
+                  pokemonDataSelected?.sprites.other.home.front_shiny ||
+                  `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
+                  pokeballImg
+                }
+                alt={pokemonDataSelected?.name}
+                className="pokeAvatar"
+              />
+            )}
+          </div>
+          <div className="pokeInfo">
+            <Tabs
+              defaultActiveKey="Stats"
+              className="tabs"
+              style={{
+                fontSize: '14px',
+                marginBottom: '1rem',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
+            >
+              <Tab eventKey="About" title="About">
+                <PokeAbout species={species} />
+              </Tab>
+              <Tab eventKey="Stats" title="Stats">
+                <PokeStats />
+              </Tab>
+              <Tab eventKey="Pre-Evolutions" title="Pre-Evolutions">
+                <PokeEvolutions species={species} />
+              </Tab>
+            </Tabs>
+          </div>
         </div>
-      </header>
-      <div className="pokeContainer">
-        <img
-          src={getBackground(pokemonDataSelected?.types[0].type.name)}
-          alt="bg"
-          className="background"
-        />
-        {isShiny === false ? (
-          <img
-            src={
-              pokemonDataSelected?.sprites.other.home.front_default ||
-              `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
-              pokeballImg
-            }
-            alt={pokemonDataSelected?.name}
-            className="pokeAvatar"
-          />
-        ) : (
-          <img
-            src={
-              pokemonDataSelected?.sprites.other.home.front_shiny ||
-              `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
-              pokeballImg
-            }
-            alt={pokemonDataSelected?.name}
-            className="pokeAvatar"
-          />
-        )}
-      </div>
-      <div className="pokeInfo">
-        <Tabs
-          defaultActiveKey="Stats"
-          className="tabs"
-          style={{
-            fontSize: '14px',
-            marginBottom: '1rem',
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-          }}
-        >
-          <Tab eventKey="About" title="About">
-            <PokeAbout species={species} />
-          </Tab>
-          <Tab eventKey="Stats" title="Stats">
-            <PokeStats />
-          </Tab>
-          <Tab eventKey="Pre-Evolutions" title="Pre-Evolutions">
-            <PokeEvolutions species={species} />
-          </Tab>
-        </Tabs>
-      </div>
+      )}
     </Modal>
   );
 }
