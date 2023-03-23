@@ -37,6 +37,6 @@ $ npm run dev
 
 ### Aplicação em funcionamento
 
-|             Parte I              |             Parte II              |
-| :------------------------------: | :-------------------------------: |
-| <img src= "src/assets/home.jpg"> | <img src= "src/assets/modal.jpg"> |
+|                            Home                             |
+| :---------------------------------------------------------: |
+| <img src= "public/Pokedex-Preview-Made-with-Clipchamp.gif"> |
