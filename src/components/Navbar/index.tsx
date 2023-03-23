@@ -21,7 +21,7 @@ export function Navbar() {
             to="/"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Todos</span>
+            <span>All</span>
           </NavLink>
         </li>
         <li>
@@ -29,7 +29,7 @@ export function Navbar() {
             to="/bug-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Inseto</span>
+            <span>Bug</span>
           </NavLink>
         </li>
         <li>
@@ -37,7 +37,7 @@ export function Navbar() {
             to="/dark-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Sombrio</span>
+            <span>Dark</span>
           </NavLink>
         </li>
         <li>
@@ -45,7 +45,7 @@ export function Navbar() {
             to="/dragon-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Dragão</span>
+            <span>Dragon</span>
           </NavLink>
         </li>
         <li>
@@ -53,7 +53,7 @@ export function Navbar() {
             to="/electric-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Elétrico</span>
+            <span>Electric</span>
           </NavLink>
         </li>
         <li>
@@ -61,7 +61,7 @@ export function Navbar() {
             to="/fairy-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Fada</span>
+            <span>Fairy</span>
           </NavLink>
         </li>
         <li>
@@ -69,7 +69,7 @@ export function Navbar() {
             to="/fighting-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Lutador</span>
+            <span>Fighting</span>
           </NavLink>
         </li>
         <li>
@@ -77,7 +77,7 @@ export function Navbar() {
             to="/fire-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Fogo</span>
+            <span>Fire</span>
           </NavLink>
         </li>
         <li>
@@ -85,7 +85,7 @@ export function Navbar() {
             to="/flying-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Voador</span>
+            <span>Flying</span>
           </NavLink>
         </li>
         <li>
@@ -93,7 +93,7 @@ export function Navbar() {
             to="/ghost-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Fantasma</span>
+            <span>Ghost</span>
           </NavLink>
         </li>
         <li>
@@ -101,7 +101,7 @@ export function Navbar() {
             to="/grass-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Planta</span>
+            <span>Grass</span>
           </NavLink>
         </li>
         <li>
@@ -109,7 +109,7 @@ export function Navbar() {
             to="/ground-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Terrestre</span>
+            <span>Ground</span>
           </NavLink>
         </li>
         <li>
@@ -117,7 +117,7 @@ export function Navbar() {
             to="/ice-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Gelo</span>
+            <span>Ice</span>
           </NavLink>
         </li>
         <li>
@@ -133,7 +133,7 @@ export function Navbar() {
             to="/psychic-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Psíquico</span>
+            <span>Psychic</span>
           </NavLink>
         </li>
         <li>
@@ -141,7 +141,7 @@ export function Navbar() {
             to="/rock-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Pedra</span>
+            <span>Rock</span>
           </NavLink>
         </li>
         <li>
@@ -149,7 +149,7 @@ export function Navbar() {
             to="/steel-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Aço</span>
+            <span>Steel</span>
           </NavLink>
         </li>
         <li>
@@ -157,7 +157,7 @@ export function Navbar() {
             to="/water-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Água</span>
+            <span>Water</span>
           </NavLink>
         </li>
         <li>
@@ -165,7 +165,7 @@ export function Navbar() {
             to="/poison-pokes"
             style={({ isActive }) => (isActive ? activeStyle : defaultState)}
           >
-            <span>Venenoso</span>
+            <span>Poison</span>
           </NavLink>
         </li>
       </ul>

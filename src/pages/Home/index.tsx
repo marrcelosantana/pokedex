@@ -55,7 +55,7 @@ export function Home() {
         <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>
           <Button onClick={() => tradeImg()}>
-            <span>Me surpreenda</span>
+            <span>Surprise me</span>
             <img src={starImg} alt="magic star" />
           </Button>
           {/* <select>

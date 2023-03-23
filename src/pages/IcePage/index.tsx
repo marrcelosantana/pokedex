@@ -48,12 +48,6 @@ export function IcePage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
-        <div className={styles.buttonsContainer}>
-          <Button onClick={() => tradeImg()}>
-            <span>Me surpreenda</span>
-            <img src={starImg} alt="magic star" />
-          </Button>
-        </div>
         <div className={styles.pokeListContainer}>
           {pokemonsPerType?.pokemon.map((pokemon: PokePerTypeArrays) => (
             <span

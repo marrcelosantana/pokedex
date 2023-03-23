@@ -20,7 +20,7 @@ export function Header() {
       <div className={styles.searchContainer}>
         <input
           type="text"
-          placeholder="Pesquise um pokémon pelo seu nome"
+          placeholder="Search pokemon by name"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
