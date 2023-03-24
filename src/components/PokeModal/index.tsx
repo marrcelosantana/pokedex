@@ -11,7 +11,6 @@ import { PokeEvolutions } from '../PokeEvolutions';
 import { PokeStats } from '../PokeStats';
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
-import pokeballImg from '../../assets/pokeball.png';
 import { Loading } from '../Loading';
 
 import './styles.scss';
