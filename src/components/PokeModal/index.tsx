@@ -80,7 +80,8 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
                 <img
                   src={
                     pokemonDataSelected?.sprites.other.home.front_shiny ||
-                    `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`
+                    pokemonDataSelected?.sprites.other['official-artwork']
+                      .front_shiny
                   }
                   alt="Shiny"
                   onClick={() => handleShinyTransform()}
@@ -89,7 +90,8 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
                 <img
                   src={
                     pokemonDataSelected?.sprites.other.home.front_default ||
-                    `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`
+                    pokemonDataSelected?.sprites.other['official-artwork']
+                      .front_default
                   }
                   alt={pokemonDataSelected?.name}
                   onClick={() => handleShinyTransform()}
@@ -107,8 +109,8 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
               <img
                 src={
                   pokemonDataSelected?.sprites.other.home.front_default ||
-                  `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
-                  pokeballImg
+                  pokemonDataSelected?.sprites.other['official-artwork']
+                    .front_default
                 }
                 alt={pokemonDataSelected?.name}
                 className="pokeAvatar"
@@ -117,8 +119,8 @@ export function PokeModal({ isOpenModal, closeModal }: ModalProps) {
               <img
                 src={
                   pokemonDataSelected?.sprites.other.home.front_shiny ||
-                  `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
-                  pokeballImg
+                  pokemonDataSelected?.sprites.other['official-artwork']
+                    .front_shiny
                 }
                 alt={pokemonDataSelected?.name}
                 className="pokeAvatar"

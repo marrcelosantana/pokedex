@@ -49,7 +49,9 @@ export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
               <img
                 src={
                   pokemonPerTypeData?.sprites?.other.home.front_shiny ||
-                  `https://img.pokemondb.net/sprites/home/shiny/${pokemonPerTypeData?.name}.png`
+                  pokemonPerTypeData.sprites.front_shiny ||
+                  pokemonPerTypeData.sprites.other['official-artwork']
+                    .front_shiny
                 }
                 alt="mini shiny sprite"
                 title={`SHINY ${pokemonPerTypeData?.name.toUpperCase()}`}
@@ -59,9 +61,10 @@ export function PokePerTypeCard({ pokemon }: PokePerTypeProps) {
           <div className={styles.imageContainer}>
             <img
               src={
-                pokemonPerTypeData?.sprites.other['official-artwork']
+                pokemonPerTypeData.sprites.other['official-artwork']
                   .front_default ||
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonPerTypeData?.name}.png`
+                pokemonPerTypeData?.sprites.other.dream_world.front_default ||
+                pokemonPerTypeData?.sprites.front_default
               }
               alt={pokemonPerTypeData?.name}
             />

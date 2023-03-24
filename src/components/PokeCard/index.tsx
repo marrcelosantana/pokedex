@@ -59,8 +59,8 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
           <div className={styles.imageContainer}>
             <img
               src={
-                pokemonData?.sprites.other['official-artwork'].front_default ||
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonData?.name}.png`
+                pokemonData.sprites.other['official-artwork'].front_default ||
+                pokemonData?.sprites.other.dream_world.front_default
               }
               alt={pokemonData?.name}
             />

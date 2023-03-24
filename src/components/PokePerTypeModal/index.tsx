@@ -90,7 +90,9 @@ export function PokePerTypeModal({ isOpenModal, closeModal }: ModalProps) {
                   src={
                     pokemonsPerTypeDataSelected?.sprites.other.home
                       .front_shiny ||
-                    `https://img.pokemondb.net/sprites/home/shiny/${pokemonsPerTypeDataSelected?.name}.png`
+                    pokemonsPerTypeDataSelected?.sprites.other[
+                      'official-artwork'
+                    ].front_shiny
                   }
                   alt="Shiny"
                   onClick={() => handleShinyTransform()}
@@ -100,7 +102,9 @@ export function PokePerTypeModal({ isOpenModal, closeModal }: ModalProps) {
                   src={
                     pokemonsPerTypeDataSelected?.sprites.other.home
                       .front_default ||
-                    `https://img.pokemondb.net/sprites/home/normal/${pokemonsPerTypeDataSelected?.name}.png`
+                    pokemonsPerTypeDataSelected?.sprites.other[
+                      'official-artwork'
+                    ].front_default
                   }
                   alt={pokemonsPerTypeDataSelected?.name}
                   onClick={() => handleShinyTransform()}
@@ -121,7 +125,8 @@ export function PokePerTypeModal({ isOpenModal, closeModal }: ModalProps) {
                 src={
                   pokemonsPerTypeDataSelected?.sprites.other.home
                     .front_default ||
-                  `https://img.pokemondb.net/sprites/home/normal/${pokemonsPerTypeDataSelected?.name}.png`
+                  pokemonsPerTypeDataSelected?.sprites.other['official-artwork']
+                    .front_default
                 }
                 alt={pokemonsPerTypeDataSelected?.name}
                 className="pokeAvatar"
@@ -130,7 +135,8 @@ export function PokePerTypeModal({ isOpenModal, closeModal }: ModalProps) {
               <img
                 src={
                   pokemonsPerTypeDataSelected?.sprites.other.home.front_shiny ||
-                  `https://img.pokemondb.net/sprites/home/shiny/${pokemonsPerTypeDataSelected?.name}.png`
+                  pokemonsPerTypeDataSelected?.sprites.other['official-artwork']
+                    .front_shiny
                 }
                 alt={pokemonsPerTypeDataSelected?.name}
                 className="pokeAvatar"
