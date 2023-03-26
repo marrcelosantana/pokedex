@@ -38,15 +38,16 @@ export function Home() {
     setOpenModal(false);
   }
 
-  async function getPokemons() {
-    await api
-      .get(`/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`)
-      .then((response) => setPokemons(response.data.results));
+  async function loadPokemons() {
+    const response = await api.get(
+      `/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`
+    );
+    setPokemons(response.data.results);
     window.addEventListener('scroll', handleScroll);
   }
 
   useEffect(() => {
-    getPokemons();
+    loadPokemons();
   }, [currentPage, pokemonPerPage]);
 
   return (

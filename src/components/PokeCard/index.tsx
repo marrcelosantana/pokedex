@@ -13,20 +13,27 @@ export interface PokemonCardProps {
 
 export function PokeCard({ pokemon }: PokemonCardProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function getPokemonData() {
-    await api.get(pokemon.url).then((response) => {
+  async function loadPokemonData() {
+    try {
+      setIsLoading(true);
+      const response = await api.get(pokemon.url);
       setPokemonData(response.data);
-    });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   useEffect(() => {
-    getPokemonData();
+    loadPokemonData();
   }, [pokemon.url, pokemonData?.id]);
 
   return (
     <div className={styles.container}>
-      {!pokemonData ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <>
@@ -59,7 +66,7 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
           <div className={styles.imageContainer}>
             <img
               src={
-                pokemonData.sprites.other['official-artwork'].front_default ||
+                pokemonData?.sprites.other['official-artwork'].front_default ||
                 pokemonData?.sprites.other.dream_world.front_default
               }
               alt={pokemonData?.name}

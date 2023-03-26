@@ -29,6 +29,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "react/no-unescaped-entities": "off",
     "prefer-destructuring": "off",
-    "react/jsx-no-useless-fragment": "off"
+    "react/jsx-no-useless-fragment": "off",
+    "no-plusplus": "off"
   }
 }
