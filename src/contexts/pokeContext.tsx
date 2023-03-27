@@ -43,7 +43,7 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
   const [pokemonDataSelected, setPokemonDataSelected] = useState<PokemonData>();
 
-  const [pokemonPerPage, setPokemonPerPage] = useState(8);
+  const [pokemonPerPage, setPokemonPerPage] = useState(50);
   const [currentPage] = useState(0);
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
 
@@ -59,7 +59,7 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
       event.target.documentElement.scrollTop + window.innerHeight
     );
     if (currentHeight + 1 >= scrollHeight) {
-      setPokemonPerPage(pokemonPerPage + 4);
+      setPokemonPerPage(pokemonPerPage + 25);
     }
   }
 
