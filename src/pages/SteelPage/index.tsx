@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { api } from '../../service/api';
 
 import { Carousel } from '../../components/Carousel';
 import { PokeCard } from '../../components/PokeCard';
@@ -17,8 +16,8 @@ export function SteelPage() {
   const {
     showPikachu,
     pokemonsPerType,
-    setPokemonsPerType,
     setPokemonSelected,
+    loadPokemonsPerType,
   } = useContext(PokeContext);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
@@ -26,19 +25,6 @@ export function SteelPage() {
   const [isOpenModal, setOpenModal] = useState(false);
 
   const pokemons = pokemonsPerType?.pokemon;
-
-  async function loadPokemons() {
-    try {
-      const response = await api.get('/type/steel');
-      setPokemonsPerType(response.data);
-    } catch (error) {
-      throw new Error('Unable to load data.');
-    }
-  }
-
-  useEffect(() => {
-    loadPokemons();
-  }, []);
 
   function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
@@ -50,6 +36,10 @@ export function SteelPage() {
   function handleCloseModal() {
     setOpenModal(false);
   }
+
+  useEffect(() => {
+    loadPokemonsPerType('steel');
+  }, []);
 
   return (
     <div className={styles.pageContainer}>

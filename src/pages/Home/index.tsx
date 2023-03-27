@@ -43,11 +43,15 @@ export function Home() {
   }
 
   async function loadPokemons() {
-    const response = await api.get(
-      `/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`
-    );
-    setPokemons(response.data.results);
-    window.addEventListener('scroll', handleScroll);
+    try {
+      const response = await api.get(
+        `/pokemon?limit=${pokemonPerPage}&offset=${currentPage}`
+      );
+      setPokemons(response.data.results);
+      window.addEventListener('scroll', handleScroll);
+    } catch (error) {
+      throw new Error('Unable to load data.');
+    }
   }
 
   useEffect(() => {

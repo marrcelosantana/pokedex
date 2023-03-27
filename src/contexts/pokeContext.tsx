@@ -2,7 +2,7 @@ import { createContext, ReactNode, useState } from 'react';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonData } from '../models/PokemonData';
 import { PokemonPerType } from '../models/PokemonPerType';
-import { PokePerTypeArrays } from '../models/PokePerTypeArrays';
+import { api } from '../service/api';
 
 interface PokeContextData {
   pokemons: Pokemon[];
@@ -30,6 +30,8 @@ interface PokeContextData {
   handleScroll(event: any): void;
 
   setPokemonsPerType(pokemon: PokemonPerType): void;
+
+  loadPokemonsPerType(type: string): Promise<void>;
 }
 
 export const PokeContext = createContext({} as PokeContextData);
@@ -72,6 +74,15 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
     }
   }
 
+  async function loadPokemonsPerType(type: string) {
+    try {
+      const response = await api.get(`/type/${type}`);
+      setPokemonsPerType(response.data);
+    } catch (error) {
+      throw new Error('Unable to load data.');
+    }
+  }
+
   return (
     <PokeContext.Provider
       value={{
@@ -97,6 +108,8 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
 
         pokemonsPerType,
         setPokemonsPerType,
+
+        loadPokemonsPerType,
       }}
     >
       {children}
