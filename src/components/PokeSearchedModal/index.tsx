@@ -9,13 +9,13 @@ import { api } from '../../service/api';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { getBackground } from '../../utils/utils';
 
-import { PokeAbout } from '../PokeAbout';
-import { PokeEvolutions } from '../PokeEvolutions';
-import { PokeStats } from '../PokeStats';
 import { Loading } from '../Loading';
+import { PokeSearchedStats } from '../PokeSearchedStats';
 
 import { PokeSpecies } from '../../models/PokeSpecies';
 import { PokemonData } from '../../models/PokemonData';
+import { PokeSearchedAbout } from '../PokeSearchedAbout';
+import { PokeSearchedEvolutions } from '../PokeSearchedEvolutions';
 
 import './styles.scss';
 
@@ -53,7 +53,7 @@ export function PokeSearchedModal({
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      {pokemon ? (
+      {pokemon?.species ? (
         <div style={{ width: '100%', flex: 1 }}>
           <header>
             <button type="button" onClick={() => closeModal()}>
@@ -128,13 +128,13 @@ export function PokeSearchedModal({
               }}
             >
               <Tab eventKey="About" title="About">
-                <PokeAbout species={species} />
+                <PokeSearchedAbout species={species} pokemon={pokemon} />
               </Tab>
               <Tab eventKey="Stats" title="Stats">
-                <PokeStats />
+                <PokeSearchedStats stats={pokemon.stats} />
               </Tab>
               <Tab eventKey="Pre-Evolutions" title="Pre-Evolutions">
-                <PokeEvolutions species={species} />
+                <PokeSearchedEvolutions species={species} pokemon={pokemon} />
               </Tab>
             </Tabs>
           </div>

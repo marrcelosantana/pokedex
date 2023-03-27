@@ -1,0 +1,29 @@
+.container {
+  padding: 2% 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  font-size: 14px;
+
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .statsBar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+  .statsName {
+    text-transform: capitalize;
+    color: var(--gray-4);
+  }
+}
+
+.tabs {
+  color: red;
+}

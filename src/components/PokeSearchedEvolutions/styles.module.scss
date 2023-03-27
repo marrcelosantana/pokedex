@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 20px;
+  margin-top: 10%;
+
+  .spriteContainer,
+  .arrowContainer {
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 4.084rem;
+      height: 4.084rem;
+    }
+  }
+
+  .arrowContainer {
+    background: none;
+  }
+
+  .preEvolution,
+  .evolution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0 5px;
+    text-transform: capitalize;
+    color: var(--gray-5);
+  }
+
+  .noPreEvolutions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-4);
+    font-size: 22px;
+    font-weight: bold;
+  }
+}

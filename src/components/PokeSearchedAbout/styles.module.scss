@@ -1,0 +1,46 @@
+.about {
+  display: flex;
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-5);
+  padding: 0 2%;
+}
+
+.moreDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0 8%;
+
+  .leftDetails,
+  .rightDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .weight,
+  .height,
+  .category,
+  .habilities {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+.detailTitle {
+  font-size: 14px;
+  color: var(--gray-4);
+}
+
+.detailData {
+  font-size: 13px;
+  color: var(--gray-5);
+  display: flex;
+  flex-direction: column;
+  gap: 0 5px;
+  text-transform: capitalize;
+}
