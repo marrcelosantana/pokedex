@@ -58,6 +58,7 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
     const currentHeight = Math.ceil(
       event.target.documentElement.scrollTop + window.innerHeight
     );
+
     if (currentHeight + 1 >= scrollHeight) {
       setPokemonPerPage(pokemonPerPage + 25);
     }
