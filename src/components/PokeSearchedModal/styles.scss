@@ -1,0 +1,173 @@
+.react-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content {
+  width: 100%;
+  max-width: 28.938rem;
+  height: 52.75rem;
+  background-color: #fff;
+  position: relative;
+  border-radius: 15px;
+  outline: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-height: 768px) {
+    height: 700px;
+  }
+
+  header {
+    width: 100%;
+    height: 8.063rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 4%;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    background-color: var(--gray-2);
+
+    button,
+    .pokeSprite {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      outline: 0;
+    }
+
+    button {
+      background-color: var(--background);
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      color: var(--gray-5);
+
+      .pokeName {
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      .pokeNumber {
+        font-size: 20px;
+      }
+    }
+
+    .pokeSprite {
+      background-color: var(--background);
+      cursor: pointer;
+      img {
+        width: 90%;
+      }
+    }
+
+    @media (max-height: 768px) {
+      height: 6.063rem;
+
+      .title {
+        .pokeName {
+          font-size: 28px;
+          font-weight: 700;
+          text-transform: capitalize;
+        }
+
+        .pokeNumber {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .pokeContainer {
+    width: 100%;
+    height: 29.875rem;
+    display: flex;
+    justify-content: center;
+
+    .background {
+      width: 100%;
+      height: 28rem;
+      position: relative;
+    }
+
+    .pokeAvatar {
+      position: absolute;
+      width: 25rem;
+      height: 25rem;
+      margin-top: 4.8rem;
+    }
+
+    @media (max-height: 768px) {
+      height: 23rem;
+
+      .background {
+        height: 23rem;
+      }
+
+      .pokeAvatar {
+        width: 22rem;
+        height: 22rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .pokeInfo {
+    width: 100%;
+    background-color: var(--background);
+    border-radius: 15px;
+    font-size: 16px;
+  }
+
+  @media (max-height: 700px) {
+    max-width: 25rem;
+    height: 550px;
+  }
+
+  @media(max-width: 414px){
+    width: 90%;
+    header{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .pokeContainer{
+      width: 100%;
+
+      .pokeAvatar{
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.pokeballImg {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  margin-top: 4.8rem;
+}
+
+.pokeballSprite {
+  width: 2rem;
+  height: 2rem;
+}

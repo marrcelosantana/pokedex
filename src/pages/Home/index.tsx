@@ -19,7 +19,7 @@ export function Home() {
   const [isOpenModal, setOpenModal] = useState(false);
 
   const {
-    pokemonsFilter,
+    pokemons,
     setPokemonSelected,
     showPikachu,
     tradeImg,
@@ -78,7 +78,7 @@ export function Home() {
           </select> */}
         </div>
         <div className={styles.pokeListContainer}>
-          {pokemonsFilter.map((pokemon: Pokemon) => (
+          {pokemons.map((pokemon: Pokemon) => (
             <span onClick={() => handleOpenModal(pokemon)} key={pokemon.name}>
               <PokeCard pokemon={pokemon} />
             </span>

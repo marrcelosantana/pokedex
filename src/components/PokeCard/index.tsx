@@ -19,7 +19,7 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
       const response = await api.get(pokemon.url);
       setPokemonData(response.data);
     } catch (error) {
-      console.log(error);
+      throw new Error('Unable to load data.');
     }
   }
 

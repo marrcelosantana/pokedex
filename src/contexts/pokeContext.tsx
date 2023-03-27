@@ -9,14 +9,11 @@ interface PokeContextData {
   pokemonSelected: Pokemon | undefined;
   pokemonData: PokemonData | undefined;
   pokemonDataSelected: PokemonData | undefined;
+  pokemonsPerType: PokemonPerType | undefined;
 
   currentPage: number;
   pokemonPerPage: number;
   showPikachu: boolean;
-  pokemonsFilter: any;
-  search: string;
-
-  pokemonsPerType: PokemonPerType | undefined;
 
   setPokemons(pokemon: Pokemon[]): void;
   setPokemonSelected(pokemon: Pokemon): void;
@@ -25,7 +22,6 @@ interface PokeContextData {
 
   setPokemonPerPage(number: number): void;
   setShowPikachu(boolean: boolean): void;
-  setSearch(string: string): void;
   tradeImg(): void;
   handleScroll(event: any): void;
 
@@ -52,13 +48,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
   const [showPikachu, setShowPikachu] = useState<boolean>(true);
 
   const [pokemonsPerType, setPokemonsPerType] = useState<PokemonPerType>();
-
-  const [search, setSearch] = useState('');
-  const lowerSearch = search.toLowerCase();
-
-  const pokemonsFilter = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(lowerSearch)
-  );
 
   function tradeImg(): void {
     setShowPikachu(!showPikachu);
@@ -97,9 +86,6 @@ export function PokeContextProvider({ children }: PokeProviderProps) {
 
         pokemonPerPage,
         setPokemonPerPage,
-        pokemonsFilter,
-        search,
-        setSearch,
         showPikachu,
         setShowPikachu,
         tradeImg,
