@@ -1,41 +1,48 @@
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import { Button } from '../../components/Button';
+
 import { Carousel } from '../../components/Carousel';
-import { PokeContext } from '../../contexts/pokeContext';
 import { PokeCard } from '../../components/PokeCard';
-import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
+import { PokeModal } from '../../components/PokeModal';
+
+import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
-import { PokePerTypeModal } from '../../components/PokePerTypeModal';
-import starImg from '../../assets/magic-star.svg';
+
+import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
+import { Pokemon } from '../../models/Pokemon';
 
 import styles from '../Home/styles.module.scss';
 
 export function FairyPage() {
   const {
     showPikachu,
-    tradeImg,
     pokemonsPerType,
     setPokemonsPerType,
-    setPokemonsPerTypeSelected,
+    setPokemonSelected,
   } = useContext(PokeContext);
+
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
 
   const [isOpenModal, setOpenModal] = useState(false);
 
-  async function getPokemons() {
-    await api
-      .get(`/type/fairy`)
-      .then((response) => setPokemonsPerType(response.data));
+  const pokemons = pokemonsPerType?.pokemon;
+
+  async function loadPokemons() {
+    try {
+      const response = await api.get('/type/fairy');
+      setPokemonsPerType(response.data);
+    } catch (error) {
+      throw new Error('Unable to load data.');
+    }
   }
 
   useEffect(() => {
-    getPokemons();
+    loadPokemons();
   }, []);
 
-  function handleOpenModal(pokemon: PokePerTypeArrays): void {
+  function handleOpenModal(pokemon: Pokemon): void {
     setOpenModal(true);
-    setPokemonsPerTypeSelected(pokemon);
+    setPokemonSelected(pokemon);
     setIsShiny(false);
     setSpriteIsShiny(true);
   }
@@ -49,19 +56,17 @@ export function FairyPage() {
       <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
         <div className={styles.pokeListContainer}>
-          {pokemonsPerType?.pokemon.map((pokemon: PokePerTypeArrays) => (
-            <span
-              key={pokemon.pokemon.name}
-              onClick={() => handleOpenModal(pokemon)}
-            >
-              <PokeCard pokemon={pokemon.pokemon} />
-            </span>
-          ))}
+          {pokemons &&
+            pokemons.map((pokemon: PokePerTypeArrays) => (
+              <span
+                key={pokemon.pokemon.name}
+                onClick={() => handleOpenModal(pokemon.pokemon)}
+              >
+                <PokeCard pokemon={pokemon.pokemon} />
+              </span>
+            ))}
         </div>
-        <PokePerTypeModal
-          isOpenModal={isOpenModal}
-          closeModal={handleCloseModal}
-        />
+        <PokeModal isOpenModal={isOpenModal} closeModal={handleCloseModal} />
       </div>
     </div>
   );
