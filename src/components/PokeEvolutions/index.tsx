@@ -11,8 +11,7 @@ interface PokeEvolutionsProps {
 }
 
 export function PokeEvolutions({ species }: PokeEvolutionsProps) {
-  const { pokemonDataSelected, pokemonsPerTypeDataSelected } =
-    useContext(PokeContext);
+  const { pokemonDataSelected } = useContext(PokeContext);
   const { isShiny } = useContext(PokeModalContext);
   return (
     <div className={styles.container}>
@@ -47,31 +46,19 @@ export function PokeEvolutions({ species }: PokeEvolutionsProps) {
         <div className={styles.spriteContainer}>
           {isShiny === false ? (
             <img
-              src={
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png` ||
-                `https://img.pokemondb.net/sprites/home/normal/${pokemonsPerTypeDataSelected?.name}.png`
-              }
+              src={`https://img.pokemondb.net/sprites/home/normal/${pokemonDataSelected?.name}.png`}
               alt="sprite evolution"
-              title={
-                pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name
-              }
+              title={pokemonDataSelected?.name}
             />
           ) : (
             <img
-              src={
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png` ||
-                `https://img.pokemondb.net/sprites/home/shiny/${pokemonsPerTypeDataSelected?.name}.png`
-              }
+              src={`https://img.pokemondb.net/sprites/home/shiny/${pokemonDataSelected?.name}.png`}
               alt="sprite evolution"
-              title={
-                pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name
-              }
+              title={pokemonDataSelected?.name}
             />
           )}
         </div>
-        <span>
-          {pokemonDataSelected?.name || pokemonsPerTypeDataSelected?.name}
-        </span>
+        <span>{pokemonDataSelected?.name}</span>
       </div>
     </div>
   );

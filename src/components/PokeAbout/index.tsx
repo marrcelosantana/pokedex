@@ -9,8 +9,7 @@ interface PokeAboutProps {
 }
 
 export function PokeAbout({ species }: PokeAboutProps) {
-  const { pokemonDataSelected, pokemonsPerTypeDataSelected } =
-    useContext(PokeContext);
+  const { pokemonDataSelected } = useContext(PokeContext);
 
   return (
     <div className={styles.infoDetails}>
@@ -22,16 +21,13 @@ export function PokeAbout({ species }: PokeAboutProps) {
           <div className={styles.wight}>
             <span className={styles.detailTitle}>Weight</span>
             <span className={styles.detailData}>
-              {pokemonDataSelected?.weight ||
-                pokemonsPerTypeDataSelected?.weight}{' '}
-              lbs
+              {pokemonDataSelected?.weight} lbs
             </span>
           </div>
           <div className={styles.height}>
             <span className={styles.detailTitle}>Height</span>
             <span className={styles.detailData}>
-              {pokemonDataSelected?.height ||
-                pokemonsPerTypeDataSelected?.height}
+              {pokemonDataSelected?.height}
               '00
             </span>
           </div>
@@ -41,27 +37,19 @@ export function PokeAbout({ species }: PokeAboutProps) {
           <div className={styles.category}>
             <span className={styles.detailTitle}>Types</span>
             <span className={styles.detailData}>
-              {pokemonDataSelected?.types[0]?.type.name ||
-                pokemonsPerTypeDataSelected?.types[0]?.type.name}
+              {pokemonDataSelected?.types[0]?.type.name}
             </span>
             {pokemonDataSelected?.types.length === 2 && (
               <span className={styles.detailData}>
-                {pokemonDataSelected?.types[1]?.type.name ||
-                  pokemonsPerTypeDataSelected?.types[1]?.type.name}
+                {pokemonDataSelected?.types[1]?.type.name}
               </span>
             )}
           </div>
           <div className={styles.abilities}>
             <span className={styles.detailTitle}>Abilities</span>
             <div className={styles.detailData}>
-              <span>
-                {pokemonDataSelected?.abilities[0]?.ability.name ||
-                  pokemonsPerTypeDataSelected?.abilities[0]?.ability.name}
-              </span>
-              <span>
-                {pokemonDataSelected?.abilities[1]?.ability.name ||
-                  pokemonsPerTypeDataSelected?.abilities[1]?.ability.name}
-              </span>
+              <span>{pokemonDataSelected?.abilities[0]?.ability.name}</span>
+              <span>{pokemonDataSelected?.abilities[1]?.ability.name}</span>
             </div>
           </div>
         </div>
