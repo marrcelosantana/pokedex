@@ -45,11 +45,20 @@ header {
         color: var(--gray-4);
       }
     }
+
+    .searchBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -2.5rem;
+      background: none;
+      border: 0;
+    }
+
     .searchIcon {
       width: 1.25rem;
       height: 1.25rem;
       color: var(--gray-4);
-      margin-left: -2.5rem;
     }
 
     @media (max-width: 1366px) {

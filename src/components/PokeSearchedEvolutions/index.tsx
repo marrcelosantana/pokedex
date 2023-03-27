@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokemonData } from '../../models/PokemonData';
 import { PokeSpecies } from '../../models/PokeSpecies';

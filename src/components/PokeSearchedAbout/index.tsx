@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { PokeContext } from '../../contexts/pokeContext';
 import { PokemonData } from '../../models/PokemonData';
 import { PokeSpecies } from '../../models/PokeSpecies';
 

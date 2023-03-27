@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { PokeContext } from '../../contexts/pokeContext';
 import styles from './styles.module.scss';
 
 interface Props {

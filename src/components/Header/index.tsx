@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import toast, { Toaster } from 'react-hot-toast';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokemonData } from '../../models/PokemonData';
 import { api } from '../../service/api';
@@ -25,8 +26,10 @@ export function Header() {
   }
 
   async function handleSearchPokemon() {
+    const query = pokemonName.toLowerCase();
+
     try {
-      const response = await api.get(`/pokemon/${pokemonName}`);
+      const response = await api.get(`/pokemon/${query}`);
 
       const {
         id,
@@ -58,12 +61,22 @@ export function Header() {
       handleOpenModal(pokemon);
       setPokemonName('');
     } catch (error) {
-      throw new Error('Unable to load data.');
+      setPokemon(null);
+
+      toast.error('Pokemon não existente!\n Digite novamente.', {
+        style: {
+          color: '#fff',
+          backgroundColor: '#e13c42',
+        },
+      });
+
+      setPokemonName('');
     }
   }
 
   return (
     <header>
+      <Toaster position="top-right" reverseOrder={false} />
       <div className={styles.logoContainer}>
         <img
           src="https://img.pokemondb.net/sprites/black-white/anim/normal/lugia.gif"
@@ -79,7 +92,16 @@ export function Header() {
           value={pokemonName}
           onChange={(event) => setPokemonName(event.target.value)}
         />
-        <FiSearch className={styles.searchIcon} onClick={handleSearchPokemon} />
+        <button
+          type="submit"
+          className={styles.searchBtn}
+          disabled={pokemonName.length === 0}
+        >
+          <FiSearch
+            className={styles.searchIcon}
+            onClick={handleSearchPokemon}
+          />
+        </button>
       </div>
       <span> </span>
 
