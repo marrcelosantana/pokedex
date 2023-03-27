@@ -1,12 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../../service/api';
+
 import { Pokemon } from '../../models/Pokemon';
+
 import { Carousel } from '../../components/Carousel';
 import { Button } from '../../components/Button';
 import { PokeCard } from '../../components/PokeCard';
 import { PokeModal } from '../../components/PokeModal';
+
 import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
+
 import starImg from '../../assets/magic-star.svg';
 
 import styles from './styles.module.scss';

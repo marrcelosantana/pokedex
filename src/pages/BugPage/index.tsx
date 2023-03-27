@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../../service/api';
+
 import { Button } from '../../components/Button';
 import { Carousel } from '../../components/Carousel';
-import { PokeContext } from '../../contexts/pokeContext';
-import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
-import { PokeModal } from '../../components/PokeModal';
-import { PokeModalContext } from '../../contexts/pokeModalContext';
-import starImg from '../../assets/magic-star.svg';
-
-import styles from '../Home/styles.module.scss';
 import { PokeCard } from '../../components/PokeCard';
+import { PokeModal } from '../../components/PokeModal';
+
+import { PokeContext } from '../../contexts/pokeContext';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
+
+import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
+import starImg from '../../assets/magic-star.svg';
+import styles from '../Home/styles.module.scss';
 
 export function BugPage() {
   const {
