@@ -1,12 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../../service/api';
+
 import { Button } from '../../components/Button';
 import { Carousel } from '../../components/Carousel';
-import { PokeContext } from '../../contexts/pokeContext';
-import { PokePerTypeCard } from '../../components/PokePerTypeCard';
-import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
-import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokePerTypeModal } from '../../components/PokePerTypeModal';
+import { PokeCard } from '../../components/PokeCard';
+
+import { PokeContext } from '../../contexts/pokeContext';
+import { PokeModalContext } from '../../contexts/pokeModalContext';
+import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
+
 import starImg from '../../assets/magic-star.svg';
 
 import styles from '../Home/styles.module.scss';
@@ -54,7 +57,7 @@ export function DragonPage() {
               key={pokemon.pokemon.name}
               onClick={() => handleOpenModal(pokemon)}
             >
-              <PokePerTypeCard pokemon={pokemon} />
+              <PokeCard pokemon={pokemon.pokemon} />
             </span>
           ))}
         </div>

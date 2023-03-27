@@ -13,7 +13,7 @@ export interface PokemonCardProps {
 
 export function PokeCard({ pokemon }: PokemonCardProps) {
   const [pokemonData, setPokemonData] = useState<PokemonData>();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function loadPokemonData() {
     try {

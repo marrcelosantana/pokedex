@@ -3,7 +3,7 @@ import { api } from '../../service/api';
 import { Button } from '../../components/Button';
 import { Carousel } from '../../components/Carousel';
 import { PokeContext } from '../../contexts/pokeContext';
-import { PokePerTypeCard } from '../../components/PokePerTypeCard';
+import { PokeCard } from '../../components/PokeCard';
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokePerTypeModal } from '../../components/PokePerTypeModal';
@@ -54,7 +54,7 @@ export function NormalPage() {
               key={pokemon.pokemon.name}
               onClick={() => handleOpenModal(pokemon)}
             >
-              <PokePerTypeCard pokemon={pokemon} />
+              <PokeCard pokemon={pokemon.pokemon} />
             </span>
           ))}
         </div>
