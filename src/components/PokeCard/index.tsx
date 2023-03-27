@@ -49,7 +49,7 @@ export function PokeCard({ pokemon }: PokemonCardProps) {
             <div className={styles.pokeSprite}>
               <img
                 src={
-                  pokemonData.sprites.other.home.front_shiny ||
+                  pokemonData.sprites.other['official-artwork'].front_shiny ||
                   `https://img.pokemondb.net/sprites/home/shiny/${pokemonData.name}.png`
                 }
                 alt="mini shiny sprite"
