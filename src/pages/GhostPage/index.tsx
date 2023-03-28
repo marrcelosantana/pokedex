@@ -3,12 +3,15 @@ import { useContext, useEffect, useState } from 'react';
 import { Carousel } from '../../components/Carousel';
 import { PokeCard } from '../../components/PokeCard';
 import { PokeModal } from '../../components/PokeModal';
+import { Button } from '../../components/Button';
 
 import { PokeContext } from '../../contexts/pokeContext';
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 
 import { PokePerTypeArrays } from '../../models/PokePerTypeArrays';
 import { Pokemon } from '../../models/Pokemon';
+
+import starImg from '../../assets/magic-star.svg';
 
 import styles from '../Home/styles.module.scss';
 
@@ -18,6 +21,7 @@ export function GhostPage() {
     pokemonsPerType,
     setPokemonSelected,
     loadPokemonsPerType,
+    tradeImg,
   } = useContext(PokeContext);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
@@ -37,6 +41,19 @@ export function GhostPage() {
     setOpenModal(false);
   }
 
+  function shufflePokemons() {
+    if (pokemons) {
+      for (let i = pokemons.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = pokemons[i];
+        pokemons[i] = pokemons[j];
+        pokemons[j] = temp;
+      }
+    }
+    tradeImg();
+    return pokemons;
+  }
+
   useEffect(() => {
     loadPokemonsPerType('ghost');
   }, []);
@@ -45,6 +62,12 @@ export function GhostPage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
+        <div className={styles.buttonsContainer}>
+          <Button onClick={() => shufflePokemons()}>
+            <span>Surprise me</span>
+            <img src={starImg} alt="magic star" />
+          </Button>
+        </div>
         <div className={styles.pokeListContainer}>
           {pokemons &&
             pokemons.map((pokemon: PokePerTypeArrays) => (
