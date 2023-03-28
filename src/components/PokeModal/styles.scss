@@ -37,6 +37,11 @@
     position: relative;
     background-color: var(--gray-2);
 
+    @media (max-width: 920px) {
+      display: flex;
+      flex-direction: row;
+    }
+
     button,
     .pokeSprite {
       width: 3rem;
@@ -143,17 +148,17 @@
     height: 550px;
   }
 
-  @media(max-width: 414px){
+  @media (max-width: 414px) {
     width: 90%;
-    header{
+    header {
       display: flex;
       flex-direction: row;
     }
 
-    .pokeContainer{
+    .pokeContainer {
       width: 100%;
 
-      .pokeAvatar{
+      .pokeAvatar {
         margin-top: 5px;
       }
     }
