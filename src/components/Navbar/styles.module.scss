@@ -1,24 +1,10 @@
 .container {
-  ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--gray-4);
-    padding: 0 1% 0 1%;
-    outline: 0;
-  }
-
-  @media (max-width: 1366px) {
-    font-size: 14px;
-    max-width: 100%;
-  }
-
-  @media (max-width: 414px) {
-    margin: 20px;
-  }
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
 
   span {
     transition: color 0.2s;
@@ -26,6 +12,19 @@
 
     &:hover {
       color: var(--gray-5);
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    padding: 0 6% 0 6%;
+    margin: 5px 0 5px 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 8px;
+    div {
+      font-size: 10px;
     }
   }
 }

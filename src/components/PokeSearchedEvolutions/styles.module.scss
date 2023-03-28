@@ -44,3 +44,9 @@
     font-weight: bold;
   }
 }
+
+@media (max-width: 414px) {
+  .container {
+    margin-top: 5rem;
+  }
+}
