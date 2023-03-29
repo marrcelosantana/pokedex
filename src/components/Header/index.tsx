@@ -19,7 +19,7 @@ type FormDataProps = {
 };
 
 const formSchema = yup.object({
-  pokemonName: yup.string().required('Enter the pokemon name'),
+  pokemonName: yup.string().trim().required('Enter the pokemon name'),
 });
 
 export function Header() {
@@ -28,12 +28,7 @@ export function Header() {
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
 
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { isSubmitting },
-  } = useForm<FormDataProps>({
+  const { control, handleSubmit, reset } = useForm<FormDataProps>({
     resolver: yupResolver(formSchema),
   });
 
@@ -125,11 +120,7 @@ export function Header() {
           )}
         />
 
-        <button
-          type="submit"
-          className={styles.searchBtn}
-          disabled={isSubmitting}
-        >
+        <button type="submit" className={styles.searchBtn}>
           <FiSearch className={styles.searchIcon} />
         </button>
       </form>
