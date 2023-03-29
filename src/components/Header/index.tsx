@@ -1,19 +1,41 @@
 import { useContext, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import toast, { Toaster } from 'react-hot-toast';
+
+import * as yup from 'yup';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import { PokeModalContext } from '../../contexts/pokeModalContext';
 import { PokemonData } from '../../models/PokemonData';
-import { api } from '../../service/api';
 import { PokeSearchedModal } from '../PokeSearchedModal';
+
+import { api } from '../../service/api';
 
 import styles from './styles.module.scss';
 
+type FormDataProps = {
+  pokemonName: string;
+};
+
+const formSchema = yup.object({
+  pokemonName: yup.string().required('Enter the pokemon name'),
+});
+
 export function Header() {
-  const [pokemonName, setPokemonName] = useState<string>('');
   const [pokemon, setPokemon] = useState<PokemonData | null>(null);
   const [isOpenModal, setOpenModal] = useState(false);
 
   const { setIsShiny, setSpriteIsShiny } = useContext(PokeModalContext);
+
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<FormDataProps>({
+    resolver: yupResolver(formSchema),
+  });
 
   function handleOpenModal(pokemonData: PokemonData | null): void {
     setOpenModal(true);
@@ -25,7 +47,7 @@ export function Header() {
     setOpenModal(false);
   }
 
-  async function handleSearchPokemon() {
+  async function handleSearchPokemon({ pokemonName }: FormDataProps) {
     const query = pokemonName.toLowerCase();
 
     try {
@@ -59,7 +81,8 @@ export function Header() {
 
       setPokemon(pokemonSearched);
       handleOpenModal(pokemon);
-      setPokemonName('');
+
+      reset({ pokemonName: '' });
     } catch (error) {
       setPokemon(null);
 
@@ -70,7 +93,7 @@ export function Header() {
         },
       });
 
-      setPokemonName('');
+      reset({ pokemonName: '' });
     }
   }
 
@@ -85,24 +108,31 @@ export function Header() {
         />
         <span>PokéDex</span>
       </div>
-      <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Search pokemon by name"
-          value={pokemonName}
-          onChange={(event) => setPokemonName(event.target.value)}
+      <form
+        className={styles.searchContainer}
+        onSubmit={handleSubmit(handleSearchPokemon)}
+      >
+        <Controller
+          control={control}
+          name="pokemonName"
+          render={({ field: { value, onChange } }) => (
+            <input
+              type="text"
+              placeholder="Search pokemon by name"
+              value={value}
+              onChange={onChange}
+            />
+          )}
         />
+
         <button
           type="submit"
           className={styles.searchBtn}
-          disabled={pokemonName.length === 0}
+          disabled={isSubmitting}
         >
-          <FiSearch
-            className={styles.searchIcon}
-            onClick={handleSearchPokemon}
-          />
+          <FiSearch className={styles.searchIcon} />
         </button>
-      </div>
+      </form>
       <span> </span>
 
       {pokemon && (
