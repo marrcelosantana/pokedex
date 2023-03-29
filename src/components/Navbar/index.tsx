@@ -1,19 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import { NavLinkComponent } from '../NavLink';
 import styles from './styles.module.scss';
 
 export function Navbar() {
-  const activeStyle = {
-    textDecoration: 'underline',
-    textDecorationColor: '#4d4d4d',
-    color: '#4d4d4d',
-    fontWeight: 'bold',
-  };
-
-  const defaultState = {
-    color: '#ababab',
-  };
-
   return (
     <div className={styles.container}>
       <NavLinkComponent route="/" pageName="All" color="#4d4d4d" />
@@ -41,6 +29,7 @@ export function Navbar() {
         pageName="Fighting"
         color="#d56723"
       />
+
       <NavLinkComponent route="/fire-pokes" pageName="Fire" color="#fd7d24" />
 
       <NavLinkComponent
