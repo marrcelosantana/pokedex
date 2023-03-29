@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { NavLinkComponent } from '../NavLink';
 import styles from './styles.module.scss';
 
 export function Navbar() {
@@ -15,158 +16,74 @@ export function Navbar() {
 
   return (
     <div className={styles.container}>
-      <div>
-        <NavLink
-          to="/"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>All</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/bug-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Bug</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/dark-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Dark</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/dragon-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Dragon</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/electric-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Electric</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/fairy-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Fairy</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/fighting-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Fighting</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/fire-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Fire</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/flying-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Flying</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/ghost-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Ghost</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/grass-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Grass</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/ground-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Ground</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/ice-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Ice</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/normal-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Normal</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/psychic-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Psychic</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/rock-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Rock</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/steel-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Steel</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/water-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Water</span>
-        </NavLink>
-      </div>
-      <div>
-        <NavLink
-          to="/poison-pokes"
-          style={({ isActive }) => (isActive ? activeStyle : defaultState)}
-        >
-          <span>Poison</span>
-        </NavLink>
-      </div>
+      <NavLinkComponent route="/" pageName="All" color="#4d4d4d" />
+
+      <NavLinkComponent route="/bug-pokes" pageName="Bug" color="#729f3f" />
+
+      <NavLinkComponent route="/dark-pokes" pageName="Dark" color="#707070" />
+
+      <NavLinkComponent
+        route="/dragon-pokes"
+        pageName="Dragon"
+        color="#f16e57"
+      />
+
+      <NavLinkComponent
+        route="/electric-pokes"
+        pageName="Electric"
+        color="#eed535"
+      />
+
+      <NavLinkComponent route="/fairy-pokes" pageName="Fairy" color="#fdb9e9" />
+
+      <NavLinkComponent
+        route="/fighting-pokes"
+        pageName="Fighting"
+        color="#d56723"
+      />
+      <NavLinkComponent route="/fire-pokes" pageName="Fire" color="#fd7d24" />
+
+      <NavLinkComponent
+        route="/flying-pokes"
+        pageName="Flying"
+        color="#bdb9b8"
+      />
+
+      <NavLinkComponent route="/ghost-pokes" pageName="Ghost" color="#7b61a2" />
+
+      <NavLinkComponent route="/grass-pokes" pageName="Grass" color="#9bcc50" />
+
+      <NavLinkComponent
+        route="/ground-pokes"
+        pageName="Ground"
+        color="#ab9842"
+      />
+
+      <NavLinkComponent route="/ice-pokes" pageName="Ice" color="#51c4e7" />
+
+      <NavLinkComponent
+        route="/normal-pokes"
+        pageName="Normal"
+        color="#a4acaf"
+      />
+
+      <NavLinkComponent
+        route="/psychic-pokes"
+        pageName="Psychic"
+        color="#f265b8"
+      />
+
+      <NavLinkComponent route="/rock-pokes" pageName="Rock" color="#a38c21" />
+
+      <NavLinkComponent route="/steel-pokes" pageName="Steel" color="#9eb7b8" />
+
+      <NavLinkComponent route="/water-pokes" pageName="Water" color="#4592c4" />
+
+      <NavLinkComponent
+        route="/poison-pokes"
+        pageName="Poison"
+        color="#b97fc9"
+      />
     </div>
   );
 }
