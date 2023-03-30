@@ -41,10 +41,10 @@ $ npm run dev
 
 ### Imagens
 
-|                 Iphone                 |                 Ipad                 |
-| :------------------------------------: | :----------------------------------: |
-| <img src= "./public/print-mobile.png"> | <img src= "./public/print-ipad.png"> |
-
 |               Macbook               |
 | :---------------------------------: |
 | <img src= "./public/print-mac.png"> |
+
+|                 Iphone                 |                 Ipad                 |
+| :------------------------------------: | :----------------------------------: |
+| <img src= "./public/print-mobile.png"> | <img src= "./public/print-ipad.png"> |
