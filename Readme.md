@@ -22,6 +22,8 @@ https://pokedex-react-marcelo.surge.sh/
 - [Prettier](https://prettier.io/)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
 - [React Router](https://reactrouter.com/en/main)
+- [React Hook Form](https://react-hook-form.com/)
+- [Poke API](https://pokeapi.co/)
 
 ### Como rodar a aplicação
 
