@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
-interface Props {
+interface NavLinkProps {
   route: string;
   pageName: string;
   color: string;
 }
 
-export function NavLinkComponent({ route, pageName, color }: Props) {
+export function NavLinkComponent({ route, pageName, color }: NavLinkProps) {
   const activeStyle = {
     textDecoration: 'underline',
     textDecorationColor: color,
