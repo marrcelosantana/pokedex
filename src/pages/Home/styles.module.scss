@@ -16,8 +16,16 @@
       margin-top: 1%;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 10px;
+
+      .numberOfPokes {
+        span {
+          font-size: 18px;
+          font-weight: bold;
+          color: var(--gray-5);
+        }
+      }
 
       select {
         width: 13.438rem;
@@ -66,10 +74,22 @@
     @media (max-width: 414px) {
       .buttonsContainer {
         button {
-          font-size: 14px;
+          font-size: 12px;
+          width: 8rem;
+
+          img {
+            width: 14px;
+            height: 14px;
+          }
         }
         select {
           font-size: 14px;
+        }
+
+        .numberOfPokes {
+          span {
+            font-size: 14px;
+          }
         }
       }
       .pokeListContainer {

@@ -63,6 +63,9 @@ export function PoisonPage() {
       <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
         <div className={styles.buttonsContainer}>
+          <div className={styles.numberOfPokes}>
+            <span>{pokemons?.length} Pokémons</span>
+          </div>
           <Button onClick={() => shufflePokemons()}>
             <span>Surprise me</span>
             <img src={starImg} alt="magic star" />
