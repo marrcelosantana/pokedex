@@ -74,20 +74,11 @@ export function Home() {
     <div className={styles.pageContainer}>
       <div className={styles.pageContent}>
         <Carousel showPikachu={showPikachu} />
-        <div className={styles.buttonsContainer}>
+        <div className={styles.buttonContainer}>
           <Button onClick={() => shufflePokemons()}>
             <span>Surprise me</span>
             <img src={starImg} alt="magic star" />
           </Button>
-          {/* <select>
-            <option value="" disabled selected hidden>
-              Visualizado por...
-            </option>
-            <option value="">Ordem Crescente</option>
-            <option value="">Ordem Decrescente</option>
-            <option value="">De A - Z</option>
-            <option value="">De Z - A</option>
-          </select> */}
         </div>
         <div className={styles.pokeListContainer}>
           {pokemons.map((pokemon: Pokemon) => (
