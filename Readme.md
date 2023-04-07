@@ -20,7 +20,6 @@ https://pokedex-react-marcelo.surge.sh/
 - [Axios](https://axios-http.com/ptbr/docs/intro)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [Axios](https://axios-http.com/ptbr/docs/intro)
 - [React Router](https://reactrouter.com/en/main)
 - [React Hook Form](https://react-hook-form.com/)
 - [Poke API](https://pokeapi.co/)
