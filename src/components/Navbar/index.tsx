@@ -1,78 +1,40 @@
 import { NavLinkComponent } from '../NavLink';
+
 import styles from './styles.module.scss';
 
 export function Navbar() {
+  const routes = [
+    { route: '/', color: '#4d4d4d', name: 'All' },
+    { route: 'bug-pokes', color: '#729f3f', name: 'Bug' },
+    { route: 'dark-pokes', color: '#707070', name: 'Dark' },
+    { route: 'dragon-pokes', color: '#f16e57', name: 'Dragon' },
+    { route: 'electric-pokes', color: '#eed535', name: 'Electric' },
+    { route: 'fairy-pokes', color: '#fdb9e9', name: 'Fairy' },
+    { route: 'fighting-pokes', color: '#d56723', name: 'Fighting' },
+    { route: 'fire-pokes', color: '#fd7d24', name: 'Fire' },
+    { route: 'flying-pokes', color: '#bdb9b8', name: 'Flying' },
+    { route: 'ghost-pokes', color: '#7b61a2', name: 'Ghost' },
+    { route: 'grass-pokes', color: '#9bcc50', name: 'Grass' },
+    { route: 'ground-pokes', color: '#ab9842', name: 'Ground' },
+    { route: 'ice-pokes', color: '#51c4e7', name: 'Ice' },
+    { route: 'normal-pokes', color: '#a4acaf', name: 'Normal' },
+    { route: 'psychic-pokes', color: '#f265b8', name: 'Psychic' },
+    { route: 'rock-pokes', color: '#a38c21', name: 'Rock' },
+    { route: 'steel-pokes', color: '#9eb7b8', name: 'Steel' },
+    { route: 'water-pokes', color: '#4592c4', name: 'Water' },
+    { route: 'poison-pokes', color: '#b97fc9', name: 'Poison' },
+  ];
+
   return (
     <div className={styles.container}>
-      <NavLinkComponent route="/" pageName="All" color="#4d4d4d" />
-
-      <NavLinkComponent route="/bug-pokes" pageName="Bug" color="#729f3f" />
-
-      <NavLinkComponent route="/dark-pokes" pageName="Dark" color="#707070" />
-
-      <NavLinkComponent
-        route="/dragon-pokes"
-        pageName="Dragon"
-        color="#f16e57"
-      />
-
-      <NavLinkComponent
-        route="/electric-pokes"
-        pageName="Electric"
-        color="#eed535"
-      />
-
-      <NavLinkComponent route="/fairy-pokes" pageName="Fairy" color="#fdb9e9" />
-
-      <NavLinkComponent
-        route="/fighting-pokes"
-        pageName="Fighting"
-        color="#d56723"
-      />
-
-      <NavLinkComponent route="/fire-pokes" pageName="Fire" color="#fd7d24" />
-
-      <NavLinkComponent
-        route="/flying-pokes"
-        pageName="Flying"
-        color="#bdb9b8"
-      />
-
-      <NavLinkComponent route="/ghost-pokes" pageName="Ghost" color="#7b61a2" />
-
-      <NavLinkComponent route="/grass-pokes" pageName="Grass" color="#9bcc50" />
-
-      <NavLinkComponent
-        route="/ground-pokes"
-        pageName="Ground"
-        color="#ab9842"
-      />
-
-      <NavLinkComponent route="/ice-pokes" pageName="Ice" color="#51c4e7" />
-
-      <NavLinkComponent
-        route="/normal-pokes"
-        pageName="Normal"
-        color="#a4acaf"
-      />
-
-      <NavLinkComponent
-        route="/psychic-pokes"
-        pageName="Psychic"
-        color="#f265b8"
-      />
-
-      <NavLinkComponent route="/rock-pokes" pageName="Rock" color="#a38c21" />
-
-      <NavLinkComponent route="/steel-pokes" pageName="Steel" color="#9eb7b8" />
-
-      <NavLinkComponent route="/water-pokes" pageName="Water" color="#4592c4" />
-
-      <NavLinkComponent
-        route="/poison-pokes"
-        pageName="Poison"
-        color="#b97fc9"
-      />
+      {routes.map((item) => (
+        <NavLinkComponent
+          key={item.name}
+          color={item.color}
+          route={item.route}
+          pageName={item.name}
+        />
+      ))}
     </div>
   );
 }
